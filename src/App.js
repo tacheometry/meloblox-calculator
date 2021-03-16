@@ -5,6 +5,7 @@ import {
 	Toolbar,
 	Typography,
 	Button,
+	Icon,
 } from "@material-ui/core";
 import "./App.css";
 import OutputGrid from "./OutputGrid";
@@ -37,6 +38,12 @@ function App() {
 		<>
 			<AppBar position="static" id="appbar">
 				<Toolbar>
+					<Icon>
+						<img
+							src="favicon.ico"
+							style={{ width: "100%", height: "100%" }}
+						/>
+					</Icon>
 					<Typography variant="h5">MeloBlox Calculator</Typography>
 				</Toolbar>
 			</AppBar>
