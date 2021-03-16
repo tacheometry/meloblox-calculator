@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import {
 	AppBar,
 	Grid,
@@ -8,7 +7,6 @@ import {
 	Button,
 } from "@material-ui/core";
 import "./App.css";
-import { DataGrid } from "@material-ui/data-grid";
 import OutputGrid from "./OutputGrid";
 import IconWithText from "./IconWithText";
 import NumberInput from "./NumberInput";
@@ -33,11 +31,7 @@ function App() {
 		});
 	};
 
-	const {
-		currencyAmount,
-		chanceData,
-		monstersSlain,
-	} = calculate(state);
+	const calculatedData = calculate(state);
 
 	return (
 		<>
@@ -80,11 +74,13 @@ function App() {
 					<Grid item component={Paper} elevation={3} xs={6} xl={4}>
 						<Typography variant="h6">Output</Typography>
 						<Typography>
-							<b>Normal monsters slain:</b> {monstersSlain.normal}
+							<b>Normal monsters slain:</b>{" "}
+							{calculatedData.monstersSlain.normal}
 							<br />
-							<b>Bosses slain:</b> {monstersSlain.bosses}
+							<b>Bosses slain:</b>{" "}
+							{calculatedData.monstersSlain.bosses}
 						</Typography>
-						<OutputGrid data={chanceData} />
+						<OutputGrid data={calculatedData.gridOutput} />
 						<Typography>
 							<b>You will earn:</b>
 						</Typography>
@@ -95,17 +91,17 @@ function App() {
 						>
 							<IconWithText
 								icon="icons/icon_gold.png"
-								text={currencyAmount.gold}
+								text={calculatedData.currencyAmount.gold}
 								tooltip="Gold"
 							/>
 							<IconWithText
 								icon="icons/icon_silver.png"
-								text={currencyAmount.silver}
+								text={calculatedData.currencyAmount.silver}
 								tooltip="Silver"
 							/>
 							<IconWithText
 								icon="icons/icon_copper.png"
-								text={currencyAmount.copper}
+								text={calculatedData.currencyAmount.copper}
 								tooltip="Copper"
 							/>
 						</Grid>
