@@ -18,7 +18,7 @@ function OutputGrid({ data }) {
 				},
 				{
 					field: "chance",
-					headerName: "Chance",
+					headerName: "Chance (%)",
 					description: "The chance of finding an item of each rarity",
 					//		width: 150,
 				},
