@@ -6,6 +6,7 @@ import {
 	Typography,
 	Button,
 	Icon,
+	Checkbox,
 } from "@material-ui/core";
 import "./App.css";
 import OutputGrid from "./OutputGrid";
@@ -20,6 +21,7 @@ function App() {
 		magicFind: 0,
 		grindTime: 0,
 		blobKingKillSeconds: 0,
+		wannaKillBosses: 0
 	});
 
 	const onSubmit = () => {
@@ -27,8 +29,8 @@ function App() {
 			goldFind: document.getElementById("goldFind").value,
 			magicFind: document.getElementById("magicFind").value,
 			grindTime: document.getElementById("grindTime").value,
-			blobKingKillSeconds: document.getElementById("blobKingKillSeconds")
-				.value,
+			blobKingKillSeconds: document.getElementById("blobKingKillSeconds").value,
+			wannaKillBosses: document.getElementById("wannaKillBosses").value
 		});
 	};
 
@@ -42,6 +44,7 @@ function App() {
 						<img
 							src="favicon.ico"
 							style={{ width: "100%", height: "100%" }}
+							alt="SUpa Cool Icon"
 						/>
 					</Icon>
 					<Typography variant="h5">MeloBlox Calculator</Typography>
@@ -82,10 +85,10 @@ function App() {
 						<Typography variant="h6">Output</Typography>
 						<Typography>
 							<b>Normal monsters slain:</b>{" "}
-							{Math.ceil(calculatedData.monstersSlain.normal)}
+							{Math.round(calculatedData.monstersSlain.normal*10)/10}
 							<br />
 							<b>Bosses slain:</b>{" "}
-							{Math.ceil(calculatedData.monstersSlain.bosses)}
+							{Math.round(calculatedData.monstersSlain.bosses*10)/10}
 						</Typography>
 						<OutputGrid data={calculatedData.gridOutput} />
 						<Typography>
