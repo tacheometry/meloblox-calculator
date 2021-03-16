@@ -177,8 +177,6 @@ const calculate = ({
 		});
 	}
 
-	console.log(gridOutput);
-
 	return {
 		currencyAmount,
 		gridOutput,
