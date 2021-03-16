@@ -34,12 +34,9 @@ function App() {
 	};
 
 	const {
-		goldAmount,
-		silverAmount,
-		copperAmount,
+		currencyAmount,
 		chanceData,
-		normalMonstersSlain,
-		bossesSlain,
+		monstersSlain,
 	} = calculate(state);
 
 	return (
@@ -83,9 +80,9 @@ function App() {
 					<Grid item component={Paper} elevation={3} xs={6} xl={4}>
 						<Typography variant="h6">Output</Typography>
 						<Typography>
-							<b>Normal monsters slain:</b> {normalMonstersSlain}
+							<b>Normal monsters slain:</b> {monstersSlain.normal}
 							<br />
-							<b>Bosses slain:</b> {bossesSlain}
+							<b>Bosses slain:</b> {monstersSlain.bosses}
 						</Typography>
 						<OutputGrid data={chanceData} />
 						<Typography>
@@ -98,17 +95,17 @@ function App() {
 						>
 							<IconWithText
 								icon="icons/icon_gold.png"
-								text={goldAmount}
+								text={currencyAmount.gold}
 								tooltip="Gold"
 							/>
 							<IconWithText
 								icon="icons/icon_silver.png"
-								text={silverAmount}
+								text={currencyAmount.silver}
 								tooltip="Silver"
 							/>
 							<IconWithText
 								icon="icons/icon_copper.png"
-								text={copperAmount}
+								text={currencyAmount.copper}
 								tooltip="Copper"
 							/>
 						</Grid>

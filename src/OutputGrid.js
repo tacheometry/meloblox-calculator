@@ -53,7 +53,7 @@ function OutputGrid({
 						width: 150,
 					},
 				]}
-				rows={[
+				/*rows={[
 					{
 						id: 1,
 						rarity: `Common`,
@@ -89,7 +89,10 @@ function OutputGrid({
 						tries: Math.random() * 100,
 						dropCount: Math.random() * 100,
 					},
-				]}
+				]}*/
+				rows={
+					rowData
+				}
 			/>
 		</div>
 	);
