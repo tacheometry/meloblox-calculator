@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/meloblox-calculator/static/css/main.126c9e33.chunk.css",
+    "main.js": "/meloblox-calculator/static/js/main.c074c8c0.chunk.js",
+    "main.js.map": "/meloblox-calculator/static/js/main.c074c8c0.chunk.js.map",
+    "runtime-main.js": "/meloblox-calculator/static/js/runtime-main.6125f106.js",
+    "runtime-main.js.map": "/meloblox-calculator/static/js/runtime-main.6125f106.js.map",
+    "static/js/2.b7f079ae.chunk.js": "/meloblox-calculator/static/js/2.b7f079ae.chunk.js",
+    "static/js/2.b7f079ae.chunk.js.map": "/meloblox-calculator/static/js/2.b7f079ae.chunk.js.map",
+    "index.html": "/meloblox-calculator/index.html",
+    "static/css/main.126c9e33.chunk.css.map": "/meloblox-calculator/static/css/main.126c9e33.chunk.css.map",
+    "static/js/2.b7f079ae.chunk.js.LICENSE.txt": "/meloblox-calculator/static/js/2.b7f079ae.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6125f106.js",
+    "static/js/2.b7f079ae.chunk.js",
+    "static/css/main.126c9e33.chunk.css",
+    "static/js/main.c074c8c0.chunk.js"
+  ]
+}
