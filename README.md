@@ -1,6 +1,22 @@
 # [MeloBlox Calculator](https://tacheometry.github.io/meloblox-calculator)
+
 Calculate loot drop chances for grinding in MeloBlox!
+
 Contributions are welcome!
+
+Please review our Contributions and Issues files before jumping ingto the action :D
+
+
+### 🌱 Roots
+
+It all started with an Early Access game on Roblox called MeloBlox from an amazing developer Poinball. The game is pretty grindy and our goal after tens of hours spent in the game was to give the community a tool to approximate their loot.
+
+
+### 🌳 __Progress__
+
+Currently we are working on the web app giving the WOW feeling and easy access to the calculations.
+
+
 
 ## Available Scripts
 
