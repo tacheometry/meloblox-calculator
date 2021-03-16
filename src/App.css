@@ -28,6 +28,27 @@
   color: #61dafb;
 }
 
+#appbar {
+	margin-bottom: 20px;
+	color: white
+}
+
+.MuiDataGrid-cell[data-value=Common] {
+	color: #5b858e;
+}
+.MuiDataGrid-cell[data-value=Uncommon] {
+	color: #34cb48
+}
+.MuiDataGrid-cell[data-value=Rare] {
+	color: #0681e9
+}
+.MuiDataGrid-cell[data-value=Epic] {
+	color: #9e3bf8
+}
+.MuiDataGrid-cell[data-value=Legendary] {
+	color: #fa563b
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
