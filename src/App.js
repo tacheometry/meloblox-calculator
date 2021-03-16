@@ -52,15 +52,15 @@ function App() {
 					<Grid item component={Paper} elevation={3}>
 						{/* Data */}
 						<Typography variant="h6">Data</Typography>
-						<NumberInput id="goldFind" label="Gold Find" />
+						<NumberInput id="goldFind" label="Gold Find (%)" />
 						<br />
-						<NumberInput id="magicFind" label="Magic Find" />
+						<NumberInput id="magicFind" label="Magic Find (%)" />
 						<br />
-						<NumberInput id="grindTime" label="Grind Time" />
+						<NumberInput id="grindTime" label="Grind Time (min)" />
 						<br />
 						<NumberInput
 							id="blobKingKillSeconds"
-							label="Blob King kill seconds"
+							label="Blob King kill time (s)"
 						/>
 						<br />
 						<Button
