@@ -78,14 +78,14 @@ function App() {
 					</Grid>
 
 					{/* Output */}
-					<Grid item component={Paper} elevation={3} xs={6} xl={4}>
+					<Grid item component={Paper} elevation={3} xs={6} xl={3}>
 						<Typography variant="h6">Output</Typography>
 						<Typography>
 							<b>Normal monsters slain:</b>{" "}
-							{calculatedData.monstersSlain.normal}
+							{Math.ceil(calculatedData.monstersSlain.normal)}
 							<br />
 							<b>Bosses slain:</b>{" "}
-							{calculatedData.monstersSlain.bosses}
+							{Math.ceil(calculatedData.monstersSlain.bosses)}
 						</Typography>
 						<OutputGrid data={calculatedData.gridOutput} />
 						<Typography>
