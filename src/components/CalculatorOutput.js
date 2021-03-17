@@ -31,7 +31,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 					Silver: <b>{calculatedData.currencyAmount.silver}</b>
 				</IconWithText>
 				<IconWithText icon="icons/icon_copper.png" tooltip="Copper">
-					Copper: <b>{calculatedData.currencyAmount.silver}</b>
+					Copper: <b>{calculatedData.currencyAmount.copper}</b>
 				</IconWithText>
 			</Grid>
 		</PaperItem>

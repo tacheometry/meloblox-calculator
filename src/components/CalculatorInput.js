@@ -29,8 +29,12 @@ const CalculatorInput = ({ onSubmit }) => {
 				onSubmit={(event) => {
 					event.preventDefault();
 
+					const target = event.target;
 					onSubmit({
-						...event.target,
+						goldFind: target.goldFind.value,
+						magicFind: target.magicFind.value,
+						grindTime: target.grindTime.value,
+						blobKingKillSeconds: target.blobKingKillSeconds.value,
 						willKillBosses,
 					});
 				}}
@@ -88,7 +92,12 @@ const CalculatorInput = ({ onSubmit }) => {
 							type="submit"
 							variant="contained"
 							color="primary"
-							style={{ width: "100%", color: "white", marginTop: 16, marginBottom: 4 }}
+							style={{
+								width: "100%",
+								color: "white",
+								marginTop: 16,
+								marginBottom: 4,
+							}}
 						>
 							Calculate
 						</Button>
