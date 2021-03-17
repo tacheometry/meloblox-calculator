@@ -7,7 +7,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 	return (
 		<PaperItem>
 			<Typography variant="h6">Output</Typography>
-			<Typography>
+			<Typography style={{ paddingTop: 8, paddingBottom: 16 }}>
 				<b>Normal monsters slain:</b>{" "}
 				{Math.round(calculatedData.monstersSlain.normal * 10) / 10}
 				<br />
@@ -16,9 +16,8 @@ const CalculatorOutput = ({ calculatedData }) => {
 			</Typography>
 			<ChancesTable data={calculatedData.gridOutput} />
 			<Typography>
+				<Grid container justify="space-between" direction="row" style={{ padding: 8, paddingTop: 16 }}>
 				<b>You will earn:</b>
-			</Typography>
-			<Grid container justify="space-between" direction="column">
 				<IconWithText icon="icons/icon_gold.png" tooltip="Gold">
 					Gold: <b>{calculatedData.currencyAmount.gold}</b>
 				</IconWithText>
@@ -29,6 +28,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 					Copper: <b>{calculatedData.currencyAmount.silver}</b>
 				</IconWithText>
 			</Grid>
+			</Typography>
 		</PaperItem>
 	);
 };

@@ -37,10 +37,10 @@ function App() {
 			}}
 		>
 			<Grid container spacing={3} justify="center">
-				<Grid item>
+				<Grid item lg={2}>
 					<CalculatorInput onSubmit={onSubmit} />
 				</Grid>
-				<Grid item xs style={{ maxWidth: "1000px" }}>
+				<Grid item md={7} sm style={{ maxWidth: "1000px" }}>
 					<CalculatorOutput calculatedData={calculatedData} />
 				</Grid>
 			</Grid>

@@ -41,6 +41,7 @@ const CalculatorInput = ({ onSubmit }) => {
 					justify="center"
 					direction="column"
 					spacing={0}
+					style={{ padding: 8 }}
 				>
 					<NumberInputItem
 						required
@@ -87,7 +88,7 @@ const CalculatorInput = ({ onSubmit }) => {
 							type="submit"
 							variant="contained"
 							color="primary"
-							style={{ width: "100%", color: "white" }}
+							style={{ width: "100%", color: "white", marginTop: 16, marginBottom: 4 }}
 						>
 							Calculate
 						</Button>

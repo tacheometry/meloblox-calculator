@@ -20,7 +20,7 @@ Currently we are working on the web app giving the WOW feeling and easy access t
 | ------- | ------------------ |
 | Loot Chances | ✅ |
 | Gold Drops | ✅ |
-| Simulation Chmabers | :x: |
+| Simulation Chambers | :x: |
 | XP Calculator | :x: |
 | More soon | ... |
 
