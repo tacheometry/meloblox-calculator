@@ -25,6 +25,14 @@ Currently we are working on the web app giving the WOW feeling and easy access t
 | More soon | ... |
 
 
+### 🎨 __Designing__
+
+We are designing new layouts on **Figma** tool.
+
+- Link to the Board: [Here](https://www.figma.com/file/NSLJ87s4NLjS5QRrkNUZhm/MeloBlox-Sketches?node-id=0%3A1)
+- Link to the Prototype: [Here](https://www.figma.com/proto/NSLJ87s4NLjS5QRrkNUZhm/MeloBlox-Sketches?node-id=1%3A9&scaling=scale-down)
+
+
 
 ## Available Scripts
 
