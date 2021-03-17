@@ -3,7 +3,6 @@
 Calculate loot drop chances for grinding in MeloBlox!
 
 Contributions are welcome!
-
 Please review our Contributions and Issues files before jumping ingto the action :D
 
 
@@ -15,7 +14,6 @@ It all started with an Early Access game on Roblox called MeloBlox from an amazi
 ### 🌳 __Progress__
 
 Currently we are working on the web app giving the WOW feeling and easy access to the calculations.
-
 Make sure to check out our Projects section for the recent plans!
 
 
