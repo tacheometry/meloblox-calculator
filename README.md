@@ -22,6 +22,8 @@ Currently we are working on the web app giving the WOW feeling and easy access t
 | Gold Drops | ✅ |
 | Simulation Chambers | :x: |
 | XP Calculator | :x: |
+| Multiselect for Mobs | :x: |
+| Mobs Storage | :x: |
 | More soon | ... |
 
 
