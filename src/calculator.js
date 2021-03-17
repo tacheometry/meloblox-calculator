@@ -79,17 +79,20 @@ const calculate = ({
     monstersSlain.normal =
         grindTime /
         ((monsters.normal.killTime + monsters.normal.cooldown) / 60);
-    monstersSlain.bosses =
-        grindTime /
-        ((monsters.boss.killTime + monsters.boss.cooldown) / 60);
+    if (willKillBosses) {
+        monstersSlain.bosses =
+            grindTime /
+            ((monsters.boss.killTime + monsters.boss.cooldown) / 60);
+    }
     monstersSlain.total =
         monstersSlain.normal + monstersSlain.elites + monstersSlain.bosses;
 
-    // let totalFindBoost = monsters["boss"].findBoost; // Will add more
-    // let totalBoostCount = monstersSlain.bosses;
-    // let avgBoost = totalFindBoost * (totalBoostCount / grindTime);
+    let totalFindBoost = monsters.boss.findBoost; // Will add more
+    let totalBoostCount = monstersSlain.bosses;
+    let avgBoost = totalFindBoost * (totalBoostCount / grindTime);
+    avgBoost = 9.09;
 
-    var totalMF = magicFind; // Adding the avgBoost breaks it for some reason ;_;
+    var totalMF = magicFind + avgBoost; // Adding the avgBoost breaks it for some reason ;_;
 
     chanceData.Common.chance = 1;
     chanceData.Uncommon.chance = totalMF / 5 / 100;

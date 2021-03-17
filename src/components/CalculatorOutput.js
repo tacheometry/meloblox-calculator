@@ -15,15 +15,15 @@ const CalculatorOutput = ({ calculatedData }) => {
 				{Math.round(calculatedData.monstersSlain.bosses * 10) / 10}
 			</Typography>
 			<ChancesTable data={calculatedData.gridOutput} />
-			<Typography>
-				<b>You will earn:</b>
-			</Typography>
 			<Grid
 				container
 				justify="space-between"
 				direction="row"
 				style={{ padding: 8, paddingTop: 16 }}
 			>
+				<Typography>
+					<b>You will earn:</b>
+				</Typography>				
 				<IconWithText icon="icons/icon_gold.png" tooltip="Gold">
 					Gold: <b>{calculatedData.currencyAmount.gold}</b>
 				</IconWithText>
@@ -31,7 +31,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 					Silver: <b>{calculatedData.currencyAmount.silver}</b>
 				</IconWithText>
 				<IconWithText icon="icons/icon_copper.png" tooltip="Copper">
-					Copper: <b>{calculatedData.currencyAmount.silver}</b>
+					Copper: <b>{calculatedData.currencyAmount.copper}</b>
 				</IconWithText>
 			</Grid>
 		</PaperItem>
