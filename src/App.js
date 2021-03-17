@@ -15,13 +15,10 @@ function App() {
 	});
 
 	const onSubmit = (data) => {
-		setState({
-			goldFind: data.goldFind?.value,
-			magicFind: data.magicFind?.value,
-			grindTime: data.grindTime?.value,
-			blobKingKillSeconds: data.blobKingKillSeconds?.value,
-			willKillBosses: data.willKillBosses
-		});
+		console.log("asd");
+		console.log(data.blobKingKillSeconds);
+
+		setState(data);
 	};
 
 	const calculatedData = calculate(state);
