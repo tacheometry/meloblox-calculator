@@ -1,4 +1,4 @@
-import { Typography, Grid, Paper } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
 import IconWithText from "./IconWithText";
 import ChancesTable from "./ChancesTable";
 import PaperItem from "./PaperItem";
@@ -19,21 +19,15 @@ const CalculatorOutput = ({ calculatedData }) => {
 				<b>You will earn:</b>
 			</Typography>
 			<Grid container justify="space-between" direction="column">
-				<IconWithText
-					icon="icons/icon_gold.png"
-					text={calculatedData.currencyAmount.gold}
-					tooltip="Gold"
-				/>
-				<IconWithText
-					icon="icons/icon_silver.png"
-					text={calculatedData.currencyAmount.silver}
-					tooltip="Silver"
-				/>
-				<IconWithText
-					icon="icons/icon_copper.png"
-					text={calculatedData.currencyAmount.copper}
-					tooltip="Copper"
-				/>
+				<IconWithText icon="icons/icon_gold.png" tooltip="Gold">
+					Gold: <b>{calculatedData.currencyAmount.gold}</b>
+				</IconWithText>
+				<IconWithText icon="icons/icon_silver.png" tooltip="Silver">
+					Silver: <b>{calculatedData.currencyAmount.silver}</b>
+				</IconWithText>
+				<IconWithText icon="icons/icon_copper.png" tooltip="Copper">
+					Copper: <b>{calculatedData.currencyAmount.silver}</b>
+				</IconWithText>
 			</Grid>
 		</PaperItem>
 	);

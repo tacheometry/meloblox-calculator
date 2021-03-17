@@ -1,12 +1,9 @@
 import {
-	Paper,
-	Typography,
 	Button,
 	Checkbox,
 	FormControlLabel,
 	FormControl,
 	FormGroup,
-	FormLabel,
 	Grid,
 } from "@material-ui/core";
 import NumberInput from "./NumberInput";
@@ -15,10 +12,10 @@ import { useState } from "react";
 
 // TODO: Output stuff from here instead of getting data from element ID
 
-const NumberInputItem = ({ children, ...properties }) => {
+const NumberInputItem = (props) => {
 	return (
 		<Grid item>
-			<NumberInput children={children} {...properties} />
+			<NumberInput {...props} />
 		</Grid>
 	);
 };
@@ -28,42 +25,14 @@ const CalculatorInput = ({ onSubmit }) => {
 
 	return (
 		<PaperItem>
-			{/* <Typography variant="h6">Data</Typography>
-			<NumberInput id="goldFind" label="Gold Find (%)" />
-			<br />
-			<NumberInput id="magicFind" label="Magic Find (%)" />
-			<br />
-			<NumberInput id="grindTime" label="Grind Time (min)" />
-			<br />
-			<NumberInput
-				id="blobKingKillSeconds"
-				label="Blob King kill time (s)"
-			/>
-			<br />
-			<FormControlLabel
-				value="end"
-				control={<Checkbox color="primary" />}
-				label="End"
-				labelPlacement="end"
-			/>
-			<br />
-			<Button
-				variant="contained"
-				style={{
-					marginTop: "10px",
-					width: "100%",
-					color: "white",
-				}}
-				color="primary"
-				onClick={onSubmit}
-			>
-				Calculate
-			</Button> */}
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
 
-					onSubmit(event.target);
+					onSubmit({
+						...event.target,
+						willKillBosses,
+					});
 				}}
 			>
 				<Grid
@@ -89,10 +58,11 @@ const CalculatorInput = ({ onSubmit }) => {
 						label="Grinding duration (min)"
 					/>
 					<FormControl component="fieldset">
-						<FormGroup name="wannaKillBosses">
+						<FormGroup>
 							<FormControlLabel
 								control={
 									<Checkbox
+										name="willKillBosses"
 										onChange={(event) =>
 											setState(event.target.checked)
 										}
@@ -106,7 +76,7 @@ const CalculatorInput = ({ onSubmit }) => {
 					</FormControl>
 					{willKillBosses && (
 						<NumberInputItem
-							name="blodKingKillSeconds"
+							name="blobKingKillSeconds"
 							label="Blob King kill time (s)"
 							defaultValue={30}
 							required

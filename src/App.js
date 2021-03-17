@@ -11,7 +11,7 @@ function App() {
 		magicFind: 0,
 		grindTime: 0,
 		blobKingKillSeconds: 0,
-		wannaKillBosses: 0,
+		willKillBosses: false,
 	});
 
 	const onSubmit = (data) => {
@@ -20,19 +20,27 @@ function App() {
 			magicFind: data.magicFind?.value,
 			grindTime: data.grindTime?.value,
 			blobKingKillSeconds: data.blobKingKillSeconds?.value,
-			wannaKillBosses: data.wannaKillBosses?.value,
+			willKillBosses: data.willKillBosses,
 		});
 	};
 
 	const calculatedData = calculate(state);
 
 	return (
-		<div className="container">
-			<Grid container spacing={5} justify="center">
+		<div
+			className="container"
+			style={{
+				margin: "12px auto",
+				position: "absolute",
+				left: 0,
+				right: 0,
+			}}
+		>
+			<Grid container spacing={3} justify="center">
 				<Grid item>
 					<CalculatorInput onSubmit={onSubmit} />
 				</Grid>
-				<Grid item xs={6} xl={3}>
+				<Grid item xs style={{ maxWidth: "1000px" }}>
 					<CalculatorOutput calculatedData={calculatedData} />
 				</Grid>
 			</Grid>

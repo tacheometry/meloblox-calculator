@@ -9,20 +9,5 @@ export default createMuiTheme({
 			main: "#f7fefc",
 		},
 	},
-	overrides: {
-		MuiGrid: {
-			item: {
-				margin: "10px",
-				//minHeight: "140px",
-				height: "auto",
-				"min-height": "100%",
-				position: "relative",
-			},
-		},
-		MuiTypography: {
-			h6: {
-				textDecoration: "underline",
-			},
-		},
-	},
+	overrides: {},
 });

@@ -1,7 +1,7 @@
 import { Typography, Tooltip } from "@material-ui/core";
 import getPublic from "../getPublic";
 
-function IconWithText({ icon, text, tooltip }) {
+function IconWithText({ icon, children, tooltip }) {
 	return (
 		<span>
 			<Tooltip title={tooltip} placement="right">
@@ -10,14 +10,14 @@ function IconWithText({ icon, text, tooltip }) {
 				>
 					<img
 						src={getPublic(icon)}
-						alt="Copper"
+						alt={tooltip}
 						style={{
 							width: "1em",
 							height: "1em",
 							display: "inline-block",
 						}}
 					/>
-					<b>{text}</b>
+					{children}
 				</Typography>
 			</Tooltip>
 		</span>

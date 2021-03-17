@@ -13,21 +13,21 @@ function OutputGrid({ data }) {
 				{
 					field: "rarity",
 					headerName: "Rarity",
-					//		width: 150,
 					sortable: false,
+					flex: 0.25,
 				},
 				{
 					field: "chance",
 					headerName: "Chance (%)",
 					description: "The chance of finding an item of each rarity",
-					//		width: 150,
+					flex: 0.25,
 				},
 				{
 					field: "tries",
 					headerName: "Tries to drop",
 					description: "Average tries for a drop of each rarity",
 					type: "number",
-					//		width: 150,
+					flex: 0.25,
 				},
 				{
 					field: "dropCount",
@@ -35,7 +35,7 @@ function OutputGrid({ data }) {
 					description:
 						"How many drops of each rarity you'll get after grinding",
 					type: "number",
-					//		width: 150,
+					flex: 0.25,
 				},
 			]}
 			rows={data}

@@ -1,14 +1,7 @@
 import { Paper } from "@material-ui/core";
 
-const PaperItem = ({ children, ...others }) => {
-	return (
-		<Paper
-			style={{ padding: "15px" }}
-			elevation={3}
-			children={children}
-			{...others}
-		/>
-	);
+const PaperItem = (props) => {
+	return <Paper style={{ padding: "12px" }} elevation={3} {...props} />;
 };
 
 export default PaperItem;
