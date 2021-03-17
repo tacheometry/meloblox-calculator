@@ -16,15 +16,7 @@ It all started with an Early Access game on Roblox called MeloBlox from an amazi
 
 Currently we are working on the web app giving the WOW feeling and easy access to the calculations.
 
-| Feature | Progression        |
-| ------- | ------------------ |
-| Loot Chances | ✅ |
-| Gold Drops | ✅ |
-| Simulation Chambers | :x: |
-| XP Calculator | :x: |
-| Multiselect for Mobs | :x: |
-| Mobs Storage | :x: |
-| More soon | ... |
+Make sure to check out our Projects section for the recent plans!
 
 
 ### 🎨 __Designing__
