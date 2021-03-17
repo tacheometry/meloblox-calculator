@@ -20,7 +20,7 @@ function App() {
 			magicFind: data.magicFind?.value,
 			grindTime: data.grindTime?.value,
 			blobKingKillSeconds: data.blobKingKillSeconds?.value,
-			willKillBosses: data.willKillBosses
+			willKillBosses: data.willKillBosses,
 		});
 	};
 
@@ -41,7 +41,9 @@ function App() {
 					<CalculatorInput onSubmit={onSubmit} />
 				</Grid>
 				<Grid item md={7} sm style={{ maxWidth: "1000px" }}>
-					<CalculatorOutput calculatedData={calculatedData} />
+					<CalculatorOutput
+						calculatedData={calculatedData.gridOutput}
+					/>
 				</Grid>
 			</Grid>
 		</div>
