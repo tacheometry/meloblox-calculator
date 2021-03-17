@@ -49,7 +49,7 @@ const CalculatorInput = ({ onSubmit }) => {
 						label="Gold Find (%)"
 					/>
 					<NumberInputItem
-						require
+						required
 						name="magicFind"
 						label="Magic Find (%)"
 					/>

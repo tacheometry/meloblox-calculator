@@ -73,8 +73,8 @@ const calculate = ({
 
     console.log(willKillBosses);
 
-    // TODO: Implement Checkbox "Wanna kill bosses" to enable or disable the boss slaying
-    monsters.boss.killTime = blobKingKillSeconds; // doesnt pass the value?
+    monsters.boss.killTime = blobKingKillSeconds;
+    console.log(blobKingKillSeconds);
 
     monstersSlain.normal =
         grindTime /

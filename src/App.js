@@ -20,7 +20,7 @@ function App() {
 			magicFind: data.magicFind?.value,
 			grindTime: data.grindTime?.value,
 			blobKingKillSeconds: data.blobKingKillSeconds?.value,
-			willKillBosses: data.willKillBosses,
+			willKillBosses: data.willKillBosses
 		});
 	};
 

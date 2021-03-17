@@ -23,6 +23,7 @@ ReactDOM.render(
 							style={{ width: "100%", height: "100%" }}
 							alt="MeloBlox Calculator"
 						/>
+						{" "}
 					</Icon>
 					<Typography variant="h5">MeloBlox Calculator</Typography>
 				</Toolbar>
