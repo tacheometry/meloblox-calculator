@@ -30,13 +30,23 @@ const CalculatorInput = ({ onSubmit }) => {
 					event.preventDefault();
 
 					const target = event.target;
-					onSubmit({
-						goldFind: target.goldFind.value,
-						magicFind: target.magicFind.value,
-						grindTime: target.grindTime.value,
-						blobKingKillSeconds: target.blobKingKillSeconds.value,
-						willKillBosses,
-					});
+					if(willKillBosses) {
+						onSubmit({
+							goldFind: target.goldFind.value,
+							magicFind: target.magicFind.value,
+							grindTime: target.grindTime.value,
+							blobKingKillSeconds: target.blobKingKillSeconds.value,
+							willKillBosses,
+						});
+					} else {
+						onSubmit({
+							goldFind: target.goldFind.value,
+							magicFind: target.magicFind.value,
+							grindTime: target.grindTime.value,
+							willKillBosses,
+						});
+					}
+					
 				}}
 			>
 				<Grid
