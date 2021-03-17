@@ -15,9 +15,6 @@ function App() {
 	});
 
 	const onSubmit = (data) => {
-		console.log("asd");
-		console.log(data.blobKingKillSeconds);
-
 		setState(data);
 	};
 
