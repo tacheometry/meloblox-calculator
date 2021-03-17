@@ -1,15 +1,5 @@
-import {
-	AppBar,
-	Grid,
-	Paper,
-	Toolbar,
-	Typography,
-	Button,
-	Icon,
-	Checkbox,
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import "./App.css";
-import NumberInput from "./components/NumberInput";
 import { useState } from "react";
 import calculate from "./calculator";
 import CalculatorInput from "./components/CalculatorInput";
@@ -24,14 +14,13 @@ function App() {
 		wannaKillBosses: 0,
 	});
 
-	const onSubmit = () => {
+	const onSubmit = (data) => {
 		setState({
-			goldFind: document.getElementById("goldFind").value,
-			magicFind: document.getElementById("magicFind").value,
-			grindTime: document.getElementById("grindTime").value,
-			blobKingKillSeconds: document.getElementById("blobKingKillSeconds")
-				.value,
-			wannaKillBosses: document.getElementById("wannaKillBosses").value,
+			goldFind: data.goldFind?.value,
+			magicFind: data.magicFind?.value,
+			grindTime: data.grindTime?.value,
+			blobKingKillSeconds: data.blobKingKillSeconds?.value,
+			wannaKillBosses: data.wannaKillBosses?.value,
 		});
 	};
 

@@ -1,4 +1,5 @@
 import { Typography, Tooltip } from "@material-ui/core";
+import getPublic from "../getPublic";
 
 function IconWithText({ icon, text, tooltip }) {
 	return (
@@ -8,7 +9,7 @@ function IconWithText({ icon, text, tooltip }) {
 					style={{ display: "inline-block", fontFamily: "Roboto" }}
 				>
 					<img
-						src={icon}
+						src={getPublic(icon)}
 						alt="Copper"
 						style={{
 							width: "1em",

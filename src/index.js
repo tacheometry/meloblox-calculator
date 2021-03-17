@@ -10,6 +10,7 @@ import {
 	Icon,
 	Typography,
 } from "@material-ui/core";
+import getPublic from "./getPublic";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -18,7 +19,7 @@ ReactDOM.render(
 				<Toolbar>
 					<Icon>
 						<img
-							src="favicon.ico"
+							src={getPublic("favicon.ico")}
 							style={{ width: "100%", height: "100%" }}
 							alt="MeloBlox Calculator"
 						/>
