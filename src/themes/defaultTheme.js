@@ -13,7 +13,7 @@ export default createMuiTheme({
             dark: "#ba2d65"
         },
         background: {
-            default: "#fff",
+            default: "#ececec",
         },
         type: "light"
     },

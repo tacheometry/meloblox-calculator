@@ -68,8 +68,10 @@ const CalculatorInput = ({ onSubmit }) => {
 					<NumberInputItem
 						required
 						name="quantityFind"
-						label="Quantity Find (%)"
-						color="secondary"
+						//label="Quantity Find (%)"
+						label="Not yet working!"
+						error={true}
+						disabled={true}
 					/>
 					<NumberInputItem
 						required
