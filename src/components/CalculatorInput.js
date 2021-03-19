@@ -33,6 +33,7 @@ const CalculatorInput = ({ onSubmit }) => {
 					if(willKillBosses) {
 						onSubmit({
 							goldFind: target.goldFind.value,
+							quantityFind: target.quantityFind.value,
 							magicFind: target.magicFind.value,
 							grindTime: target.grindTime.value,
 							blobKingKillSeconds: target.blobKingKillSeconds.value,
@@ -41,6 +42,7 @@ const CalculatorInput = ({ onSubmit }) => {
 					} else {
 						onSubmit({
 							goldFind: target.goldFind.value,
+							quantityFind: target.quantityFind.value,
 							magicFind: target.magicFind.value,
 							grindTime: target.grindTime.value,
 							willKillBosses,
@@ -61,16 +63,25 @@ const CalculatorInput = ({ onSubmit }) => {
 						required
 						name="goldFind"
 						label="Gold Find (%)"
+						color="secondary"
+					/>
+					<NumberInputItem
+						required
+						name="quantityFind"
+						label="Quantity Find (%)"
+						color="secondary"
 					/>
 					<NumberInputItem
 						required
 						name="magicFind"
 						label="Magic Find (%)"
+						color="secondary"
 					/>
 					<NumberInputItem
 						required
 						name="grindTime"
 						label="Grinding duration (min)"
+						color="secondary"
 					/>
 					<FormControl component="fieldset">
 						<FormGroup>
@@ -81,7 +92,7 @@ const CalculatorInput = ({ onSubmit }) => {
 										onChange={(event) =>
 											setState(event.target.checked)
 										}
-										color="primary"
+										color="secondary"
 									/>
 								}
 								label="I will kill bosses"
@@ -101,7 +112,7 @@ const CalculatorInput = ({ onSubmit }) => {
 						<Button
 							type="submit"
 							variant="contained"
-							color="primary"
+							color="secondary"
 							style={{
 								width: "100%",
 								color: "white",

@@ -76,7 +76,8 @@ export default function NavBar() {
                 </Typography>
                 <FormControlLabel
                     control={<Switch checked={isDark} onChange={handleThemeChange} />}
-                    label="Theme"
+                    label={isDark ? "Dark Theme" : "Light Theme"}
+                    color="secondary"
                 />
             </Toolbar>
         </AppBar>

@@ -1,0 +1,27 @@
+{
+    "Normal Mobs": [{
+            "name": "Small Blob",
+            "type": "Slime",
+            "lvl": 1,
+            "magicFindBoost": 0,
+            "cooldown": 2,
+            "killTime": 5
+        },
+        {
+            "name": "Strong Blob",
+            "type": "Slime",
+            "lvl": 5,
+            "magicFindBoost": 50,
+            "cooldown": 2,
+            "killTime": 5
+        }
+    ],
+    "Bosses": [{
+        "name": "King Blob",
+        "type": "Slime",
+        "lvl": 10,
+        "magicFindBoost": 250,
+        "cooldown": 300,
+        "killTime": 30
+    }]
+}
