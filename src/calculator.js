@@ -7,6 +7,12 @@ const calculate = ({
 	blobKingKillSeconds,
 	willKillBosses = false,
 }) => {
+
+	goldFind = parseInt(goldFind);
+	magicFind = parseInt(magicFind);
+	grindTime = parseInt(grindTime);
+	blobKingKillSeconds = parseInt(blobKingKillSeconds);
+
 	const currencyAmount = {
 		copper: 0,
 		silver: 0,
@@ -65,7 +71,7 @@ const calculate = ({
 			findBoost: 0,
 		},
 		boss: {
-			killTime: 0,
+			killTime: blobKingKillSeconds,
 			cooldown: 300,
 			findBoost: 50,
 		},
@@ -86,7 +92,7 @@ const calculate = ({
 	let totalBoostCount = monstersSlain.bosses;
 	let avgBoost = totalFindBoost * (totalBoostCount / grindTime);
 
-	var totalMF = parseInt(magicFind) + avgBoost; // Adding the avgBoost breaks it for some reason ;_;
+	var totalMF = magicFind + avgBoost; // Adding the avgBoost breaks it for some reason ;_;
 
 	chanceData.Common.chance = 1;
 	chanceData.Uncommon.chance = totalMF / 5 / 100;

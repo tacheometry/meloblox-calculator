@@ -1,35 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import NavBar from "./NavBar";
 import App from "./App";
-import theme from "./theme";
-import {
-	AppBar,
-	Toolbar,
-	ThemeProvider,
-	Icon,
-	Typography,
-} from "@material-ui/core";
-import getPublic from "./getPublic";
+import CustomThemeProvider from "./components/CustomThemeProvider";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ThemeProvider theme={theme}>
-			<AppBar position="static" id="appbar">
-				<Toolbar>
-					<Icon>
-						<img
-							src={getPublic("favicon.ico")}
-							style={{ width: "100%", height: "100%" }}
-							alt="MeloBlox Calculator"
-						/>
-						{" "}
-					</Icon>
-					<Typography variant="h5">MeloBlox Calculator</Typography>
-				</Toolbar>
-			</AppBar>
+		<CustomThemeProvider>
+			<CssBaseline />
+			<NavBar />
 			<App />
-		</ThemeProvider>
+		</CustomThemeProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
