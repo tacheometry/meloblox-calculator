@@ -2,12 +2,25 @@ import { Typography, Grid } from "@material-ui/core";
 import IconWithText from "./IconWithText";
 import ChancesTable from "./ChancesTable";
 import PaperItem from "./PaperItem";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+	output: {
+		padding: 8,
+		paddingTop: 16,
+	},
+	p16: {
+		padding: 16,
+	}
+}));
 
 const CalculatorOutput = ({ calculatedData }) => {
+	const classes = useStyles();
+
 	return (
-		<PaperItem>
+		<PaperItem className={classes.p16}>
 			<Typography variant="h6">Output</Typography>
-			<Typography style={{ paddingTop: 8, paddingBottom: 16 }}>
+			<Typography className={classes.output}>
 				<b>Normal monsters slain:</b>{" "}
 				{Math.ceil(calculatedData.monstersSlain.normal)}
 				<br />
@@ -19,7 +32,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 				container
 				justify="space-between"
 				direction="row"
-				style={{ padding: 8, paddingTop: 16 }}
+				className={classes.output}
 			>
 				<Typography>
 					<b>You will earn:</b>

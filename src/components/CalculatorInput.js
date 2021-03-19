@@ -5,12 +5,29 @@ import {
 	FormControl,
 	FormGroup,
 	Grid,
+	Typography
 } from "@material-ui/core";
 import NumberInput from "./NumberInput";
 import PaperItem from "./PaperItem";
 import { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 // TODO: Output stuff from here instead of getting data from element ID
+
+const useStyles = makeStyles((theme) => ({
+	p8: {
+		padding: 8,
+	},
+	submitButton: {
+		width: "100%",
+		color: "white",
+		marginTop: 16,
+		marginBottom: 4,
+	},
+	p16: {
+		padding: 16,
+	}
+}));
 
 const NumberInputItem = (props) => {
 	return (
@@ -22,9 +39,10 @@ const NumberInputItem = (props) => {
 
 const CalculatorInput = ({ onSubmit }) => {
 	const [willKillBosses, setState] = useState(false);
+	const classes = useStyles();
 
 	return (
-		<PaperItem>
+		<PaperItem className={classes.p8}>
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
@@ -57,8 +75,9 @@ const CalculatorInput = ({ onSubmit }) => {
 					justify="center"
 					direction="column"
 					spacing={0}
-					style={{ padding: 8 }}
+					className={classes.p8}
 				>
+					<Typography variant="h6">Insert your stats below</Typography>
 					<NumberInputItem
 						required
 						name="goldFind"
@@ -115,12 +134,7 @@ const CalculatorInput = ({ onSubmit }) => {
 							type="submit"
 							variant="contained"
 							color="secondary"
-							style={{
-								width: "100%",
-								color: "white",
-								marginTop: 16,
-								marginBottom: 4,
-							}}
+							className={classes.submitButton}
 						>
 							Calculate
 						</Button>

@@ -4,6 +4,13 @@ import { useState } from "react";
 import calculate from "./calculator";
 import CalculatorInput from "./components/CalculatorInput";
 import CalculatorOutput from "./components/CalculatorOutput";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+	spacing: {
+		margin: 16
+	}
+}));
 
 function App() {
 	const [state, setState] = useState({
@@ -19,26 +26,18 @@ function App() {
 	};
 
 	const calculatedData = calculate(state);
+	
+	const classes = useStyles();
 
 	return (
-		<div
-			className="container"
-			style={{
-				margin: "12px auto",
-				position: "absolute",
-				left: 0,
-				right: 0,
-			}}
-		>
-			<Grid container spacing={3} justify="center">
-				<Grid item lg={2}>
-					<CalculatorInput onSubmit={onSubmit} />
-				</Grid>
-				<Grid item md={7} sm style={{ maxWidth: "1000px" }}>
-					<CalculatorOutput calculatedData={calculatedData} />
-				</Grid>
+		<Grid container justify="center">
+			<Grid item lg={2} className={classes.spacing}>
+				<CalculatorInput onSubmit={onSubmit} />
 			</Grid>
-		</div>
+			<Grid item lg={5} md={7} sm className={classes.spacing}>
+				<CalculatorOutput calculatedData={calculatedData} />
+			</Grid>
+		</Grid>
 	);
 }
 

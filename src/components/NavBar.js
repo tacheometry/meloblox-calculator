@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     iconSpace: {
         marginRight: 8,
     },
+    iconStyle: {
+        height: "100%",
+    },
     right: {
         marginLeft: "auto",
     }
@@ -74,7 +77,7 @@ export default function NavBar() {
                             <Icon className={classes.iconSpace}>
                                 <img
                                     src={getPublic("favicon.ico")}
-                                    style={{ height: "100%" }}
+                                    className={classes.iconStyle}
                                     alt="MeloBlox Calculator"
                                 />
                             </Icon>
