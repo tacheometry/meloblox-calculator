@@ -7,6 +7,7 @@ import {
 	FormControlLabel,
 	Switch,
 	Grid,
+	Link,
 } from "@material-ui/core";
 import getPublic from "../getPublic";
 import { CustomThemeContext } from "./CustomThemeProvider";
@@ -16,14 +17,20 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		background: theme.palette.background,
 	},
-	iconSpace: {
+	mr8: {
 		marginRight: 8,
+	},
+	mr16: {
+		marginRight: 16,
 	},
 	iconStyle: {
 		height: "100%",
 	},
 	right: {
 		marginLeft: "auto",
+	},
+	themeText: {
+		color: theme.palette.background.contrastText,
 	},
 
 	/* May be useful ?
@@ -73,16 +80,23 @@ export default function NavBar() {
 				<Grid container alignItems="center">
 					<Grid>
 						<Grid container direction="row">
-							<Icon className={classes.iconSpace}>
+							<Icon className={classes.mr8}>
 								<img
 									src={getPublic("favicon.ico")}
 									className={classes.iconStyle}
 									alt="MeloBlox Calculator"
 								/>
 							</Icon>
-							<Typography variant="h5">
+							<Typography variant="h5" className={classes.mr16}>
 								MeloBlox Calculator
 							</Typography>
+							<Link
+								to="./AboutUs"
+								className={classes.mr16}
+								color={classes.themeText}
+							>
+								<Typography variant="h6">About Us</Typography>
+							</Link>
 						</Grid>
 					</Grid>
 					<Grid className={classes.right}>
