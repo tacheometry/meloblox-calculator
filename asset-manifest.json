@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/meloblox-calculator/static/css/main.cd57d6fe.chunk.css",
-    "main.js": "/meloblox-calculator/static/js/main.2e01251f.chunk.js",
-    "main.js.map": "/meloblox-calculator/static/js/main.2e01251f.chunk.js.map",
+    "main.js": "/meloblox-calculator/static/js/main.09b84134.chunk.js",
+    "main.js.map": "/meloblox-calculator/static/js/main.09b84134.chunk.js.map",
     "runtime-main.js": "/meloblox-calculator/static/js/runtime-main.6125f106.js",
     "runtime-main.js.map": "/meloblox-calculator/static/js/runtime-main.6125f106.js.map",
     "static/js/2.653b1f5f.chunk.js": "/meloblox-calculator/static/js/2.653b1f5f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.6125f106.js",
     "static/js/2.653b1f5f.chunk.js",
     "static/css/main.cd57d6fe.chunk.css",
-    "static/js/main.2e01251f.chunk.js"
+    "static/js/main.09b84134.chunk.js"
   ]
 }
