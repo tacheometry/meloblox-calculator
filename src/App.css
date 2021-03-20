@@ -58,6 +58,26 @@
 	font-weight: bold;
 }
 
+.MuiDataGrid-cell[data-value="Zero"] {
+	color: #f8b595;
+	font-weight: bold;
+}
+
+.MuiDataGrid-cell[data-value="One"] {
+	color: #f67280;
+	font-weight: bold;
+}
+
+.MuiDataGrid-cell[data-value="Two"] {
+	color: #c06c84;
+	font-weight: bold;
+}
+
+.MuiDataGrid-cell[data-value="Three"] {
+	color: #6c5b7c;
+	font-weight: bold;
+}
+
 @keyframes App-logo-spin {
 	from {
 		transform: rotate(0deg);
