@@ -34,23 +34,28 @@
 }
 
 .MuiDataGrid-cell[data-value="Common"] {
-	color: #5b858e;
+	color: #90a4ae;
+	font-weight: bold;
 }
 
 .MuiDataGrid-cell[data-value="Uncommon"] {
-	color: #34cb48;
+	color: #66bb6a;
+	font-weight: bold;
 }
 
 .MuiDataGrid-cell[data-value="Rare"] {
-	color: #0681e9;
+	color: #42a5f5;
+	font-weight: bold;
 }
 
 .MuiDataGrid-cell[data-value="Epic"] {
-	color: #9e3bf8;
+	color: #9575cd;
+	font-weight: bold;
 }
 
 .MuiDataGrid-cell[data-value="Legendary"] {
-	color: #fa563b;
+	color: #ff7043;
+	font-weight: bold;
 }
 
 @keyframes App-logo-spin {

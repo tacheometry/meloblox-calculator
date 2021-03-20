@@ -1,4 +1,5 @@
 const rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
+const quantities = ["Zero", "One", "Two", "Three"];
 
 // Functions for each type of calc
 
@@ -56,8 +57,9 @@ const calculate = ({
 		},
 		sum: 0,
 	};
-	const quantity = {
-		flat: willKillBosses ? 100 : 90,
+	const quantityData = {
+		normalFlat: 90,
+		bossFlat: 100,
 		sum: 0,
 		Zero: {
 			chance: 0,
@@ -169,33 +171,45 @@ const calculate = ({
 	//#endregion
 
 	//#region Quantity
-	quantity.Zero.chance = 1;
-	quantity.One.chance = quantityFind / 100;
-	quantity.Two.chance = (quantityFind / 6 / 100) * quantity.One.chance;
-	quantity.Three.chance = (quantityFind / 6 / 100) * quantity.One.chance;
+	let normalFlatCount = quantityData.normalFlat * monstersSlain.normal;
+	let bossesFlatCount = 0;
+	if (willKillBosses)
+		bossesFlatCount = quantityData.bossFlat * monstersSlain.bosses;
 
-	quantity.sum =
-		quantity.Zero.chance +
-		quantity.One.chance +
-		quantity.Two.chance +
-		quantity.Three.chance;
+	// sigh man... logic is to get an avg of the flat chance
+	quantityData.Zero.chance =
+		1 -
+		(normalFlatCount + bossesFlatCount) /
+			(monstersSlain.normal + monstersSlain.bosses) /
+			100;
+	quantityData.One.chance = quantityFind / 100;
+	quantityData.Two.chance =
+		(quantityFind / 6 / 100) * quantityData.One.chance;
+	quantityData.Three.chance =
+		(quantityFind / 13 / 100) * quantityData.One.chance;
 
-	quantity.Zero.chance /= quantity.sum;
-	quantity.One.chance /= quantity.sum;
-	quantity.Two.chance /= quantity.sum;
-	quantity.Three.chance /= quantity.sum;
+	quantityData.sum =
+		quantityData.Zero.chance +
+		quantityData.One.chance +
+		quantityData.Two.chance +
+		quantityData.Three.chance;
 
-	quantity.Zero.tries = 1 / quantity.Zero.chance;
-	quantity.Zero.count = quantity.Zero.chance * monstersSlain.total;
+	quantityData.Zero.chance /= quantityData.sum;
+	quantityData.One.chance /= quantityData.sum;
+	quantityData.Two.chance /= quantityData.sum;
+	quantityData.Three.chance /= quantityData.sum;
 
-	quantity.One.tries = 1 / quantity.One.chance;
-	quantity.One.count = quantity.One.chance * monstersSlain.total;
+	quantityData.Zero.tries = 1 / quantityData.Zero.chance;
+	quantityData.Zero.count = quantityData.Zero.chance * monstersSlain.total;
 
-	quantity.Two.tries = 1 / quantity.Two.chance;
-	quantity.Two.count = quantity.Two.chance * monstersSlain.total;
+	quantityData.One.tries = 1 / quantityData.One.chance;
+	quantityData.One.count = quantityData.One.chance * monstersSlain.total;
 
-	quantity.Three.tries = 1 / quantity.Three.chance;
-	quantity.Three.count = quantity.Three.chance * monstersSlain.total;
+	quantityData.Two.tries = 1 / quantityData.Two.chance;
+	quantityData.Two.count = quantityData.Two.chance * monstersSlain.total;
+
+	quantityData.Three.tries = 1 / quantityData.Three.chance;
+	quantityData.Three.count = quantityData.Three.chance * monstersSlain.total;
 	//#endregion
 
 	//#region Currency
@@ -253,11 +267,11 @@ const calculate = ({
 	currencyAmount.copper = Math.floor(totalAmount);
 	//#endregion
 
-	let gridOutput = [];
+	let chancesOutput = [];
 	for (const [rarity, rarityData] of Object.entries(chanceData)) {
 		const id = rarities.indexOf(rarity);
 		if (id < 0) continue;
-		gridOutput.push({
+		chancesOutput.push({
 			id,
 			rarity,
 			chance: Math.round(rarityData.chance * 10000) / 100 + "%",
@@ -266,9 +280,23 @@ const calculate = ({
 		});
 	}
 
+	let quantitiesOutput = [];
+	for (const [quantity, quanData] of Object.entries(quantityData)) {
+		const id = quantities.indexOf(quantity);
+		if (id < 0) continue;
+		quantitiesOutput.push({
+			id,
+			quantity,
+			chance: Math.round(quanData.chance * 10000) / 100 + "%",
+			tries: Math.round(quanData.tries),
+			dropCount: Math.floor(quanData.count),
+		});
+	}
+
 	return {
 		currencyAmount,
-		gridOutput,
+		chancesOutput,
+		quantitiesOutput,
 		monstersSlain,
 	};
 };

@@ -11,31 +11,32 @@ function OutputGrid({ data }) {
 			pageSize={5}
 			columns={[
 				{
-					field: "rarity",
-					headerName: "Rarity",
-					//		width: 150,
+					field: "quantity",
+					headerName: "Quantity",
 					sortable: false,
+					flex: 0.25,
 				},
 				{
 					field: "chance",
 					headerName: "Chance (%)",
-					description: "The chance of finding an item of each rarity",
-					//		width: 150,
+					description: "The chance of finding a quantity of items",
+					flex: 0.25,
 				},
 				{
 					field: "tries",
 					headerName: "Tries to drop",
-					description: "Average tries for a drop of each rarity",
+					description:
+						"Average tries for a drop the quantity of items",
 					type: "number",
-					//		width: 150,
+					flex: 0.25,
 				},
 				{
 					field: "dropCount",
 					headerName: "Drop count",
 					description:
-						"How many drops of each rarity you'll get after grinding",
+						"How many drops of each quantity you'll get after grinding",
 					type: "number",
-					//		width: 150,
+					flex: 0.25,
 				},
 			]}
 			rows={data}

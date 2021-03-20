@@ -5,7 +5,7 @@ import {
 	FormControl,
 	FormGroup,
 	Grid,
-	Typography
+	Typography,
 } from "@material-ui/core";
 import NumberInput from "./NumberInput";
 import PaperItem from "./PaperItem";
@@ -45,19 +45,20 @@ const CalculatorInput = ({ onSubmit }) => {
 	const classes = useStyles();
 
 	return (
-		<PaperItem className={ `${classes.p8} ${classes.paper}`}>
+		<PaperItem className={`${classes.p8} ${classes.paper}`}>
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
 
 					const target = event.target;
-					if(willKillBosses) {
+					if (willKillBosses) {
 						onSubmit({
 							goldFind: target.goldFind.value,
 							quantityFind: target.quantityFind.value,
 							magicFind: target.magicFind.value,
 							grindTime: target.grindTime.value,
-							blobKingKillSeconds: target.blobKingKillSeconds.value,
+							blobKingKillSeconds:
+								target.blobKingKillSeconds.value,
 							willKillBosses,
 						});
 					} else {
@@ -69,7 +70,6 @@ const CalculatorInput = ({ onSubmit }) => {
 							willKillBosses,
 						});
 					}
-					
 				}}
 			>
 				<Grid
@@ -80,7 +80,9 @@ const CalculatorInput = ({ onSubmit }) => {
 					spacing={1}
 					className={classes.p8}
 				>
-					<Typography variant="h6">Insert your stats below</Typography>
+					<Typography variant="h6">
+						Insert your stats below
+					</Typography>
 					<NumberInputItem
 						required
 						name="goldFind"
@@ -90,10 +92,8 @@ const CalculatorInput = ({ onSubmit }) => {
 					<NumberInputItem
 						required
 						name="quantityFind"
-						//label="Quantity Find (%)"
-						label="Not yet working!"
-						error={true}
-						disabled={true}
+						label="Quantity Find (%)"
+						color="secondary"
 					/>
 					<NumberInputItem
 						required

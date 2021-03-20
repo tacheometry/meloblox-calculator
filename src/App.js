@@ -16,6 +16,7 @@ function App() {
 	const [state, setState] = useState({
 		goldFind: 0,
 		magicFind: 0,
+		quantityFind: 0,
 		grindTime: 0,
 		blobKingKillSeconds: 0,
 		willKillBosses: false,
