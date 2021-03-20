@@ -6,8 +6,6 @@ import App from "./App";
 import CustomThemeProvider from "./components/CustomThemeProvider";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-
-
 ReactDOM.render(
 	<React.StrictMode>
 		<CustomThemeProvider>

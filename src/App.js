@@ -8,8 +8,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
 	spacing: {
-		margin: 16
-	}
+		margin: 16,
+	},
 }));
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
 	};
 
 	const calculatedData = calculate(state);
-	
+
 	const classes = useStyles();
 
 	return (
