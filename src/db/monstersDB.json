@@ -1,0 +1,56 @@
+{
+    "Normal": [{
+            "name": "Small Blob",
+            "type": "Slime",
+            "lvl": 1,
+            "magicFindBoost": 0,
+            "goldFindBonus": 0,
+            "quantityFindBonus": 0,
+            "cooldown": 10,
+            "killTime": 5
+        },
+        {
+            "name": "Small Blob",
+            "type": "Slime",
+            "lvl": 3,
+            "magicFindBoost": 0,
+            "goldFindBonus": 0,
+            "quantityFindBonus": 0,
+            "cooldown": 12,
+            "killTime": 5
+        },
+        {
+            "name": "Strong Blob",
+            "type": "Slime",
+            "lvl": 5,
+            "magicFindBoost": 30,
+            "goldFindBonus": 150,
+            "quantityFindBonus": 0,
+            "cooldown": 14,
+            "killTime": 5
+        },
+        {
+            "name": "Strong Blob",
+            "type": "Slime",
+            "lvl": 10,
+            "magicFindBoost": 30,
+            "goldFindBonus": 150,
+            "quantityFindBonus": 0,
+            "cooldown": 20,
+            "killTime": 5
+        }
+    ],
+    "Elites": [{
+
+    }],
+    "Bosses": [{
+        "name": "King Blob",
+        "type": "Slime",
+        "lvl": 10,
+        "magicFindBoost": 200,
+        "goldFindBonus": 450,
+        "quantityFindBonus": 100,
+        "cooldown": 360,
+        "killTime": 30
+    }]
+}

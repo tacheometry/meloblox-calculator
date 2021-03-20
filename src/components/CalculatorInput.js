@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
 	p8: {
 		padding: 8,
 	},
+	paper: {
+		background: theme.palette.background.main,
+	},
 	submitButton: {
 		width: "100%",
 		color: "white",
@@ -26,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	p16: {
 		padding: 16,
-	}
+	},
 }));
 
 const NumberInputItem = (props) => {
@@ -42,7 +45,7 @@ const CalculatorInput = ({ onSubmit }) => {
 	const classes = useStyles();
 
 	return (
-		<PaperItem className={classes.p8}>
+		<PaperItem className={ `${classes.p8} ${classes.paper}`}>
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
@@ -74,7 +77,7 @@ const CalculatorInput = ({ onSubmit }) => {
 					alignItems="center"
 					justify="center"
 					direction="column"
-					spacing={0}
+					spacing={1}
 					className={classes.p8}
 				>
 					<Typography variant="h6">Insert your stats below</Typography>
@@ -126,6 +129,7 @@ const CalculatorInput = ({ onSubmit }) => {
 							name="blobKingKillSeconds"
 							label="Blob King kill time (s)"
 							defaultValue={30}
+							color="secondary"
 							required
 						/>
 					)}

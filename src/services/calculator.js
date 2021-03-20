@@ -10,12 +10,14 @@ const calculate = ({
     quantityFind,
     willKillBosses = false,
 }) => {
+    // Parsing the strings to int so I can count with them
     goldFind = parseInt(goldFind);
     magicFind = parseInt(magicFind);
     grindTime = parseInt(grindTime);
     quantityFind = parseInt(quantityFind);
     blobKingKillSeconds = parseInt(blobKingKillSeconds);
 
+    //#region Variables
     const currencyAmount = {
         copper: 0,
         silver: 0,
@@ -94,7 +96,7 @@ const calculate = ({
         avg: 0, //to be set
     };
 
-    // TODO: Probs do XML ??
+    // TODO: Connect to JSON storage in "/db/monstersDB.json"
     const monsters = {
         normal: {
             killTime: 5,
@@ -107,7 +109,10 @@ const calculate = ({
             findBoost: 50,
         },
     };
+    //#endregion
 
+
+    //#region Monsters
     monstersSlain.normal =
         grindTime /
         ((monsters.normal.killTime + monsters.normal.cooldown) / 60);
@@ -118,6 +123,7 @@ const calculate = ({
     }
     monstersSlain.total =
         monstersSlain.normal + monstersSlain.elites + monstersSlain.bosses;
+    //#endregion
 
     let totalFindBoost = monsters.boss.findBoost; // Will add more
     let totalBoostCount = monstersSlain.bosses;
@@ -126,7 +132,7 @@ const calculate = ({
     var totalMF = magicFind + avgBoost; // Adding the avgBoost breaks it for some reason ;_;
 
 
-
+    //#region Chances
     chanceData.Common.chance = 1;
     chanceData.Uncommon.chance = totalMF / 5 / 100;
     chanceData.Rare.chance = (totalMF / 10 / 100) * chanceData.Uncommon.chance;
@@ -160,9 +166,9 @@ const calculate = ({
 
     chanceData.Legendary.tries = 1 / chanceData.Legendary.chance;
     chanceData.Legendary.count = chanceData.Legendary.chance * monstersSlain.total;
+    //#endregion
 
-
-
+    //#region Quantity
     quantity.Zero.chance = 1;
     quantity.One.chance = quantityFind / 100;
     quantity.Two.chance = (quantityFind / 6 / 100) * quantity.One.chance;
@@ -190,9 +196,9 @@ const calculate = ({
 
     quantity.Three.tries = 1 / quantity.Three.chance;
     quantity.Three.count = quantity.Three.chance * monstersSlain.total;
+    //#endregion
 
-
-
+    //#region Currency
     gold.avg = (gold.min + gold.max) / 2;
     let commonAvg,
         uncommonAvg,
@@ -245,6 +251,9 @@ const calculate = ({
     totalAmount -= Math.floor(totalAmount);
     totalAmount *= 100;
     currencyAmount.copper = Math.floor(totalAmount);
+    //#endregion
+
+
 
     let gridOutput = [];
     for (const [rarity, rarityData] of Object.entries(chanceData)) {

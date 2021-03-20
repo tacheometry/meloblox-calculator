@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import "./App.css";
 import { useState } from "react";
-import calculate from "./calculator";
+import calculate from "./services/calculator";
 import CalculatorInput from "./components/CalculatorInput";
 import CalculatorOutput from "./components/CalculatorOutput";
 import { makeStyles } from "@material-ui/core/styles";

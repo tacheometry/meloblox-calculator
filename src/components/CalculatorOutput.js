@@ -5,22 +5,27 @@ import PaperItem from "./PaperItem";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-	output: {
-		padding: 8,
+	pt16: {
 		paddingTop: 16,
+	},
+	p8: {
+		padding: 8,
 	},
 	p16: {
 		padding: 16,
-	}
+	},
+	paper: {
+		background: theme.palette.background.main,
+	},
 }));
 
 const CalculatorOutput = ({ calculatedData }) => {
 	const classes = useStyles();
 
 	return (
-		<PaperItem className={classes.p16}>
+		<PaperItem className={ `${classes.p16} ${classes.paper} `}>
 			<Typography variant="h6">Output</Typography>
-			<Typography className={classes.output}>
+			<Typography className={ `${classes.pt16} ${classes.p8}` }>
 				<b>Normal monsters slain:</b>{" "}
 				{Math.ceil(calculatedData.monstersSlain.normal)}
 				<br />
@@ -32,7 +37,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 				container
 				justify="space-between"
 				direction="row"
-				className={classes.output}
+				className={ `${classes.pt16} ${classes.p8}` }
 			>
 				<Typography>
 					<b>You will earn:</b>
