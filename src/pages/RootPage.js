@@ -1,18 +1,14 @@
-import { Grid } from "@material-ui/core";
-import "./App.css";
 import { useState } from "react";
-import calculate from "./services/calculator";
-import CalculatorInput from "./components/CalculatorInput";
-import CalculatorOutput from "./components/CalculatorOutput";
+
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-	spacing: {
-		margin: 16,
-	},
-}));
+import CalculatorInput from "../components/CalculatorInput";
+import CalculatorOutput from "../components/CalculatorOutput";
 
-function App() {
+import calculate from "../services/calculator";
+
+export default function () {
 	const [state, setState] = useState({
 		goldFind: 0,
 		magicFind: 0,
@@ -22,18 +18,18 @@ function App() {
 		willKillBosses: false,
 	});
 
-	const onSubmit = (data) => {
-		setState(data);
-	};
-
 	const calculatedData = calculate(state);
 
-	const classes = useStyles();
+	const classes = makeStyles((theme) => ({
+		spacing: {
+			margin: 16,
+		},
+	}));
 
 	return (
 		<Grid container justify="center">
 			<Grid item lg={2} className={classes.spacing}>
-				<CalculatorInput onSubmit={onSubmit} />
+				<CalculatorInput onSubmit={setState} />
 			</Grid>
 			<Grid item lg={5} md={7} sm className={classes.spacing}>
 				<CalculatorOutput calculatedData={calculatedData} />
@@ -41,5 +37,3 @@ function App() {
 		</Grid>
 	);
 }
-
-export default App;
