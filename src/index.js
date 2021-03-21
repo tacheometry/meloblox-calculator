@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import CustomThemeProvider from "./components/CustomThemeProvider";
 
-import { Paper } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 import AboutPage from "./pages/AboutPage";
 import CalculatorPage from "./pages/CalculatorPage";
@@ -21,16 +21,8 @@ ReactDOM.render(
 		<Router>
 			<CustomThemeProvider>
 				<NavBar />
-				<Paper
-					square
-					style={{
-						height: "100vh",
-						width: "100%",
-						position: "fixed",
-						overflow: "hidden",
-					}}
-				>
-					<Switch>
+				<Switch>
+					<Box style={{ marginTop: 64 }}>
 						<Route path="/about">
 							<AboutPage />
 						</Route>
@@ -40,9 +32,9 @@ ReactDOM.render(
 						<Route path="/">
 							<Redirect to="/calculator" />
 						</Route>
-						<CssBaseline />
-					</Switch>
-				</Paper>
+					</Box>
+					<CssBaseline />
+				</Switch>
 			</CustomThemeProvider>
 		</Router>
 	</React.StrictMode>,

@@ -12,34 +12,34 @@ const useStyles = makeStyles((theme) => ({
 	paper: {
 		background: theme.palette.background.main,
 	},
-	maxWidth: {
-		maxWidth: "500px",
-	},
 	p16: {
 		padding: 16,
 	},
 	spacing: {
 		margin: 16,
 	},
+	mt16: {
+		marginTop: 16,
+	},
 	imageButton: {
 		backgroundColor: "transparent",
 		width: "80px",
 	},
+	centerCard: {
+		marginLeft: "auto",
+		marginRight: "auto",
+		display: "block",
+	},
 }));
 
 function LinkButton(props) {
+	const classes = useStyles();
+
 	return (
 		<Grid item component={PaperItem}>
 			<Button href={props.link} target="_blank" rel="noreferrer noopener">
 				<Grid container justify="center" direction="column">
-					<Grid
-						item
-						style={{
-							marginLeft: "auto",
-							marginRight: "auto",
-							dislpay: "block",
-						}}
-					>
+					<Grid item className={classes.centerCard}>
 						{props.children}
 					</Grid>
 					<Grid item>
@@ -51,25 +51,21 @@ function LinkButton(props) {
 	);
 }
 
-export default function () {
+export default function AboutPage() {
 	const classes = useStyles();
 
 	return (
-		<Grid container justify="center" className={classes.spacing}>
-			<PaperItem
-				lg={5}
-				md={7}
-				className={`${classes.p16} ${classes.paper} ${classes.spacing} ${classes.maxWidth}`}
-			>
-				<h2 style={{ marginBottom: 0 }}>Meloblox Calculator</h2>
-				<h5 style={{ marginTop: 0 }}>
+		<Grid container justify="center">
+			<PaperItem className={`${classes.p16} ${classes.paper}`}>
+				<Typography variant="h5">Meloblox Calculator</Typography>
+				<Typography variant="subtitle2">
 					by{" "}
 					<Link href="https://github.com/tacheometry">
 						tacheometry
 					</Link>{" "}
 					& <Link href="https://github.com/EriiYenn">EriiYenn</Link>
-				</h5>
-				<p>
+				</Typography>
+				<Typography variant="body2" className={classes.mt16}>
 					It all started with an Early Access game on Roblox called
 					MeloBlox from an amazing developer Poinball. The game is
 					pretty grindy and our goal after tens of hours spent in the
@@ -87,8 +83,8 @@ export default function () {
 						open a Pull Request
 					</Link>{" "}
 					if you want to merge your code.
-				</p>
-				<Grid container justify="center">
+				</Typography>
+				<Grid container justify="center" className={classes.mt16}>
 					<Grid item style={{ aspectRatio: 1 }}>
 						<LinkButton
 							link="https://github.com/tacheometry/meloblox-calculator"
@@ -117,6 +113,7 @@ export default function () {
 								height="80px"
 								width="80px"
 								src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg"
+								alt="Roblox Icon"
 							/>
 						</LinkButton>
 					</Grid>
@@ -129,6 +126,7 @@ export default function () {
 								height="80px"
 								width="80px"
 								src="https://discord.com/assets/41484d92c876f76b20c7f746221e8151.svg"
+								alt="MeloBlox Discord Icon"
 							/>
 						</LinkButton>
 					</Grid>

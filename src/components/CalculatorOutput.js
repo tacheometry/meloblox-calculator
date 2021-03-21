@@ -74,7 +74,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 				indicatorColor="primary"
 				centered
 			>
-				<Tab label="Chances" {...a11yProps(0)} />
+				<Tab label="Rarity Chances" {...a11yProps(0)} />
 				<Tab label="Quantity Details" {...a11yProps(1)} />
 			</Tabs>
 			<Typography className={`${classes.p8}`}>

@@ -6,19 +6,21 @@ import {
 	Typography,
 	FormControlLabel,
 	Switch,
-	Grid,
 	Button,
-	Link,
+	Hidden,
 } from "@material-ui/core";
-import { Link as RouterLink, Redirect } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import getPublic from "../getPublic";
 import { CustomThemeContext } from "./CustomThemeProvider";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { slide as Menu } from "react-burger-menu";
+
 const useStyles = makeStyles((theme) => ({
 	root: {
 		background: theme.palette.background,
+		position: "fixed",
 	},
 	mr8: {
 		marginRight: 8,
@@ -43,27 +45,32 @@ const useStyles = makeStyles((theme) => ({
 		right: true,
 	},
 
-	/* May be useful ?
-    appBar: {
-      zIndex: theme.zIndex.drawer + 1,
-    },
-    title: {
-      flexGrow: 1,
-    },
-    drawer: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-    drawerPaper: {
-      width: drawerWidth,
-    },
-    drawerContainer: {
-      overflow: 'auto',
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-    },*/
+	/* BURGER (Maybe useful) */
+	bmBurgerButton: {
+		height: 32,
+		width: 32,
+		position: "fixed",
+		right: 16,
+		top: 12,
+	},
+	bmBurgerBars: {
+		//background: "#373a47",
+		background: theme.palette.background.contrastText,
+	},
+	bmCrossButton: {
+		height: 24,
+		width: 24,
+	},
+	bmCross: {
+		// background: "#bdc3c7",
+		background: theme.palette.background.contrastText,
+	},
+	bmMenu: {
+		background: theme.palette.secondary.dark,
+		marginTop: -64,
+		padding: "2.5em 1.5em 0",
+		fontSize: "1.15em",
+	},
 }));
 
 export default function NavBar() {
@@ -76,15 +83,8 @@ export default function NavBar() {
 	};
 
 	return (
-		<AppBar
-			position="static"
-			id="appbar"
-			className={{ root: classes.root }}
-		>
+		<AppBar id="appbar" className={{ root: classes.root }}>
 			<Toolbar>
-				{/* <Grid container alignItems="center">
-					<Grid>
-						<Grid container direction="row"> */}
 				<Icon className={classes.mr8}>
 					<img
 						src={getPublic("favicon.ico")}
@@ -95,29 +95,71 @@ export default function NavBar() {
 				<Typography variant="h5" className={classes.mr16}>
 					MeloBlox Calculator
 				</Typography>
-				{/* </Grid>
-					</Grid>
-					<Grid className={classes.right}> */}
-				{/* // 	</Grid>
-				// </Grid> */}
-				<Button component={RouterLink} to="/calculator">
-					Calculator
-				</Button>
-				<Button component={RouterLink} to="/about">
-					About
-				</Button>
-				<div className="rightAlign">
-					<FormControlLabel
-						control={
-							<Switch
-								checked={isDark}
-								onChange={handleThemeChange}
-							/>
-						}
-						label={isDark ? "Dark Theme" : "Light Theme"}
-						color="secondary"
-					/>
-				</div>
+				<Hidden smUp>
+					<Menu
+						right
+						width={"50vw"}
+						burgerButtonClassName={classes.bmBurgerButton}
+						burgerBarClassName={classes.bmBurgerBars}
+						crossButtonClassName={classes.bmCrossButton}
+						crossClassName={classes.bmCross}
+						menuClassName={classes.bmMenu}
+					>
+						<Typography variant="body1">Choose the Page</Typography>
+						<Button
+							component={RouterLink}
+							to="/calculator"
+							className={classes.themeText}
+						>
+							Calculator
+						</Button>
+						<Button
+							component={RouterLink}
+							to="/about"
+							className={classes.themeText}
+						>
+							About
+						</Button>
+						<FormControlLabel
+							control={
+								<Switch
+									checked={isDark}
+									onChange={handleThemeChange}
+								/>
+							}
+							label={isDark ? "Dark Theme" : "Light Theme"}
+							color="secondary"
+						/>
+					</Menu>
+				</Hidden>
+				<Hidden xsDown>
+					<Button
+						component={RouterLink}
+						to="/calculator"
+						className={classes.themeText}
+					>
+						Calculator
+					</Button>
+					<Button
+						component={RouterLink}
+						to="/about"
+						className={classes.themeText}
+					>
+						About
+					</Button>
+					<div className="rightAlign">
+						<FormControlLabel
+							control={
+								<Switch
+									checked={isDark}
+									onChange={handleThemeChange}
+								/>
+							}
+							label={isDark ? "Dark Theme" : "Light Theme"}
+							color="secondary"
+						/>
+					</div>
+				</Hidden>
 			</Toolbar>
 		</AppBar>
 	);
