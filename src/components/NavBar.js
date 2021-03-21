@@ -7,8 +7,11 @@ import {
 	FormControlLabel,
 	Switch,
 	Grid,
+	Button,
 	Link,
 } from "@material-ui/core";
+import { Link as RouterLink, Redirect } from "react-router-dom";
+
 import getPublic from "../getPublic";
 import { CustomThemeContext } from "./CustomThemeProvider";
 import { makeStyles } from "@material-ui/core/styles";
@@ -31,6 +34,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 	themeText: {
 		color: theme.palette.background.contrastText,
+	},
+	sectionDesktop: {
+		display: "none",
+		[theme.breakpoints.up("md")]: {
+			display: "flex",
+		},
+		right: true,
 	},
 
 	/* May be useful ?
@@ -62,12 +72,7 @@ export default function NavBar() {
 	const isDark = Boolean(currentTheme === "darkTheme");
 
 	const handleThemeChange = (event) => {
-		const { checked } = event.target;
-		if (checked) {
-			setTheme("darkTheme");
-		} else {
-			setTheme("defaultTheme");
-		}
+		setTheme(event.target.checked ? "darkTheme" : "defaultTheme");
 	};
 
 	return (
@@ -77,41 +82,42 @@ export default function NavBar() {
 			className={{ root: classes.root }}
 		>
 			<Toolbar>
-				<Grid container alignItems="center">
+				{/* <Grid container alignItems="center">
 					<Grid>
-						<Grid container direction="row">
-							<Icon className={classes.mr8}>
-								<img
-									src={getPublic("favicon.ico")}
-									className={classes.iconStyle}
-									alt="MeloBlox Calculator"
-								/>
-							</Icon>
-							<Typography variant="h5" className={classes.mr16}>
-								MeloBlox Calculator
-							</Typography>
-							<Link
-								to="./AboutUs"
-								className={classes.mr16}
-								color={classes.themeText}
-							>
-								<Typography variant="h6">About Us</Typography>
-							</Link>
-						</Grid>
+						<Grid container direction="row"> */}
+				<Icon className={classes.mr8}>
+					<img
+						src={getPublic("favicon.ico")}
+						className={classes.iconStyle}
+						alt="MeloBlox Calculator"
+					/>
+				</Icon>
+				<Typography variant="h5" className={classes.mr16}>
+					MeloBlox Calculator
+				</Typography>
+				{/* </Grid>
 					</Grid>
-					<Grid className={classes.right}>
-						<FormControlLabel
-							control={
-								<Switch
-									checked={isDark}
-									onChange={handleThemeChange}
-								/>
-							}
-							label={isDark ? "Dark Theme" : "Light Theme"}
-							color="secondary"
-						/>
-					</Grid>
-				</Grid>
+					<Grid className={classes.right}> */}
+				{/* // 	</Grid>
+				// </Grid> */}
+				<Button component={RouterLink} to="/calculator">
+					Calculator
+				</Button>
+				<Button component={RouterLink} to="/about">
+					About
+				</Button>
+				<div className="rightAlign">
+					<FormControlLabel
+						control={
+							<Switch
+								checked={isDark}
+								onChange={handleThemeChange}
+							/>
+						}
+						label={isDark ? "Dark Theme" : "Light Theme"}
+						color="secondary"
+					/>
+				</div>
 			</Toolbar>
 		</AppBar>
 	);

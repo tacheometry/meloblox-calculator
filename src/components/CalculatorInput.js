@@ -137,7 +137,7 @@ const CalculatorInput = ({ onSubmit }) => {
 						<Button
 							type="submit"
 							variant="contained"
-							color="secondary"
+							color="primary"
 							className={classes.submitButton}
 						>
 							Calculate

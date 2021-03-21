@@ -8,6 +8,12 @@ import CalculatorOutput from "../components/CalculatorOutput";
 
 import calculate from "../services/calculator";
 
+const useStyle = makeStyles((theme) => ({
+	spacing: {
+		margin: 16,
+	},
+}));
+
 export default function () {
 	const [state, setState] = useState({
 		goldFind: 0,
@@ -19,12 +25,7 @@ export default function () {
 	});
 
 	const calculatedData = calculate(state);
-
-	const classes = makeStyles((theme) => ({
-		spacing: {
-			margin: 16,
-		},
-	}));
+	const classes = useStyle();
 
 	return (
 		<Grid container justify="center">
