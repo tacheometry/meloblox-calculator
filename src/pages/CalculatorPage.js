@@ -8,17 +8,13 @@ import CalculatorOutput from "../components/CalculatorOutput";
 
 import calculate from "../services/calculator";
 
-<<<<<<< HEAD:src/pages/CalculatorPage.js
 const useStyle = makeStyles((theme) => ({
 	spacing: {
 		margin: 16,
 	},
 }));
 
-export default function () {
-=======
-export default function RootPage() {
->>>>>>> 5d760146166210510d51a7584945d94e570e9b0d:src/pages/RootPage.js
+export default function CalculatorPage() {
 	const [state, setState] = useState({
 		goldFind: 0,
 		magicFind: 0,
@@ -33,10 +29,10 @@ export default function RootPage() {
 
 	return (
 		<Grid container justify="center">
-			<Grid item lg={2} className={classes().spacing}>
+			<Grid item lg={2} className={classes.spacing}>
 				<CalculatorInput onSubmit={setState} />
 			</Grid>
-			<Grid item lg={5} md={7} sm className={classes().spacing}>
+			<Grid item lg={5} md={7} sm className={classes.spacing}>
 				<CalculatorOutput calculatedData={calculatedData} />
 			</Grid>
 		</Grid>
