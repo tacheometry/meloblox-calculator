@@ -8,7 +8,7 @@ import CalculatorOutput from "../components/CalculatorOutput";
 
 import calculate from "../services/calculator";
 
-export default function () {
+export default function RootPage() {
 	const [state, setState] = useState({
 		goldFind: 0,
 		magicFind: 0,
@@ -28,10 +28,10 @@ export default function () {
 
 	return (
 		<Grid container justify="center">
-			<Grid item lg={2} className={classes.spacing}>
+			<Grid item lg={2} className={classes().spacing}>
 				<CalculatorInput onSubmit={setState} />
 			</Grid>
-			<Grid item lg={5} md={7} sm className={classes.spacing}>
+			<Grid item lg={5} md={7} sm className={classes().spacing}>
 				<CalculatorOutput calculatedData={calculatedData} />
 			</Grid>
 		</Grid>
