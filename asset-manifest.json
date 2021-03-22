@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/meloblox-calculator/static/css/main.3af73886.chunk.css",
-    "main.js": "/meloblox-calculator/static/js/main.c715da9d.chunk.js",
-    "main.js.map": "/meloblox-calculator/static/js/main.c715da9d.chunk.js.map",
-    "runtime-main.js": "/meloblox-calculator/static/js/runtime-main.6125f106.js",
-    "runtime-main.js.map": "/meloblox-calculator/static/js/runtime-main.6125f106.js.map",
-    "static/js/2.601dc0f6.chunk.js": "/meloblox-calculator/static/js/2.601dc0f6.chunk.js",
-    "static/js/2.601dc0f6.chunk.js.map": "/meloblox-calculator/static/js/2.601dc0f6.chunk.js.map",
+    "main.js": "/meloblox-calculator/static/js/main.6f334288.chunk.js",
+    "main.js.map": "/meloblox-calculator/static/js/main.6f334288.chunk.js.map",
+    "runtime-main.js": "/meloblox-calculator/static/js/runtime-main.05da0bf4.js",
+    "runtime-main.js.map": "/meloblox-calculator/static/js/runtime-main.05da0bf4.js.map",
+    "static/js/2.c67bd603.chunk.js": "/meloblox-calculator/static/js/2.c67bd603.chunk.js",
+    "static/js/2.c67bd603.chunk.js.map": "/meloblox-calculator/static/js/2.c67bd603.chunk.js.map",
     "index.html": "/meloblox-calculator/index.html",
     "static/css/main.3af73886.chunk.css.map": "/meloblox-calculator/static/css/main.3af73886.chunk.css.map",
-    "static/js/2.601dc0f6.chunk.js.LICENSE.txt": "/meloblox-calculator/static/js/2.601dc0f6.chunk.js.LICENSE.txt"
+    "static/js/2.c67bd603.chunk.js.LICENSE.txt": "/meloblox-calculator/static/js/2.c67bd603.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6125f106.js",
-    "static/js/2.601dc0f6.chunk.js",
+    "static/js/runtime-main.05da0bf4.js",
+    "static/js/2.c67bd603.chunk.js",
     "static/css/main.3af73886.chunk.css",
-    "static/js/main.c715da9d.chunk.js"
+    "static/js/main.6f334288.chunk.js"
   ]
 }
