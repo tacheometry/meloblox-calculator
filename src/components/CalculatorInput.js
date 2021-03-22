@@ -1,3 +1,4 @@
+import React from "react";
 import {
 	Button,
 	Checkbox,
@@ -6,70 +7,35 @@ import {
 	FormGroup,
 	Grid,
 	Typography,
+	Paper,
 } from "@material-ui/core";
 import NumberInput from "./NumberInput";
-import PaperItem from "./PaperItem";
-import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
-// TODO: Output stuff from here instead of getting data from element ID
-
-const useStyles = makeStyles((theme) => ({
-	p8: {
-		padding: 8,
-	},
-	paper: {
-		background: theme.palette.background.main,
-	},
-	submitButton: {
-		width: "100%",
-		color: "white",
-		marginTop: 16,
-		marginBottom: 4,
-	},
-	p16: {
-		padding: 16,
-	},
-}));
+import useStyles from "../styles";
 
 const NumberInputItem = (props) => {
-	return (
-		<Grid item>
-			<NumberInput {...props} />
-		</Grid>
-	);
+	return <Grid item component={NumberInput} {...props} />;
 };
 
 const CalculatorInput = ({ onSubmit }) => {
-	const [willKillBosses, setState] = useState(false);
+	const [willKillBosses, setState] = React.useState(false);
 	const classes = useStyles();
 
 	return (
-		<PaperItem className={`${classes.p8} ${classes.paper}`}>
+		<div>
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
 
 					const target = event.target;
-					if (willKillBosses) {
-						onSubmit({
-							goldFind: target.goldFind.value,
-							quantityFind: target.quantityFind.value,
-							magicFind: target.magicFind.value,
-							grindTime: target.grindTime.value,
-							blobKingKillSeconds:
-								target.blobKingKillSeconds.value,
-							willKillBosses,
-						});
-					} else {
-						onSubmit({
-							goldFind: target.goldFind.value,
-							quantityFind: target.quantityFind.value,
-							magicFind: target.magicFind.value,
-							grindTime: target.grindTime.value,
-							willKillBosses,
-						});
-					}
+					onSubmit({
+						goldFind: target.goldFind.value,
+						quantityFind: target.quantityFind.value,
+						magicFind: target.magicFind.value,
+						grindTime: target.grindTime.value,
+						blobKingKillSeconds: target.blobKingKillSeconds?.value,
+						willKillBosses,
+					});
 				}}
 			>
 				<Grid
@@ -78,7 +44,6 @@ const CalculatorInput = ({ onSubmit }) => {
 					justify="center"
 					direction="column"
 					spacing={1}
-					className={classes.p8}
 				>
 					<Typography variant="h6">
 						Insert your stats below
@@ -138,14 +103,13 @@ const CalculatorInput = ({ onSubmit }) => {
 							type="submit"
 							variant="contained"
 							color="primary"
-							className={classes.submitButton}
 						>
 							Calculate
 						</Button>
 					</Grid>
 				</Grid>
 			</form>
-		</PaperItem>
+		</div>
 	);
 };
 

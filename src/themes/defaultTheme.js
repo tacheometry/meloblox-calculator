@@ -1,14 +1,14 @@
 import { createMuiTheme } from "@material-ui/core";
 
-export default createMuiTheme({
+const useStyles = createMuiTheme({
 	palette: {
 		primary: {
 			main: "#ec407a",
-			light: "#ff77a9",
+			light: "#ec407a",
 			dark: "#b4004e",
 		},
 		secondary: {
-			main: "#f06292",
+			main: "#40ecb3",
 			light: "#ff94c2",
 			dark: "#ba2d65",
 		},
@@ -21,3 +21,5 @@ export default createMuiTheme({
 	},
 	overrides: {},
 });
+
+export default useStyles;

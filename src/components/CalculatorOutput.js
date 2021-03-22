@@ -1,29 +1,15 @@
-import { Typography, Grid, Tabs, Tab, Box } from "@material-ui/core";
+import React from "react";
+import { Typography, Grid, Tabs, Tab, Box, Paper } from "@material-ui/core";
 import IconWithText from "./IconWithText";
 import ChancesTable from "./ChancesTable";
 import QuantityTable from "./QuantityTable";
-import PaperItem from "./PaperItem";
-import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
-import PropTypes from "prop-types";
 
-const useStyles = makeStyles((theme) => ({
-	pt16: {
-		paddingTop: 16,
-	},
-	p8: {
-		padding: 8,
-	},
-	p16: {
-		padding: 16,
-	},
-	mt8: {
-		marginTop: 8,
-	},
-	paper: {
-		background: theme.palette.background.main,
-	},
-}));
+import useStyles from "../styles";
+
+const noNaN = (x) => {
+	if (isNaN(x)) return 0;
+	return x;
+};
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -32,8 +18,8 @@ function TabPanel(props) {
 		<div
 			role="tabpanel"
 			hidden={value !== index}
-			id={`scrollable-force-tabpanel-${index}`}
-			aria-labelledby={`scrollable-force-tab-${index}`}
+			id={`wrapped-tabpanel-${index}`}
+			aria-labelledby={`wrapped-tab-${index}`}
 			{...other}
 		>
 			{value === index && (
@@ -44,40 +30,35 @@ function TabPanel(props) {
 		</div>
 	);
 }
-TabPanel.propTypes = {
-	children: PropTypes.node,
-	index: PropTypes.any.isRequired,
-	value: PropTypes.any.isRequired,
-};
+
 function a11yProps(index) {
 	return {
-		id: `vertical-tab-${index}`,
-		"aria-controls": `vertical-tabpanel-${index}`,
+		id: `wrapped-tab-${index}`,
+		"aria-controls": `wrapped-tabpanel-${index}`,
 	};
 }
 
 const CalculatorOutput = ({ calculatedData }) => {
 	const classes = useStyles();
-	const [value, setValue] = useState(0);
+	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
 	return (
-		<PaperItem className={`${classes.p16} ${classes.paper} `}>
+		<div>
 			<Tabs
 				orientation="horizontal"
 				value={value}
 				onChange={handleChange}
-				aria-label="Vertical tabs example"
 				indicatorColor="primary"
 				centered
 			>
 				<Tab label="Rarity Chances" {...a11yProps(0)} />
-				<Tab label="Quantity Details" {...a11yProps(1)} />
+				{/* <Tab label="Quantity Details" {...a11yProps(1)} /> */}
 			</Tabs>
-			<Typography className={`${classes.p8}`}>
+			<Typography>
 				Normal monsters slain:{" "}
 				<b>{Math.ceil(calculatedData.monstersSlain.normal)}</b>
 				<br />
@@ -85,38 +66,27 @@ const CalculatorOutput = ({ calculatedData }) => {
 				<b>{Math.ceil(calculatedData.monstersSlain.bosses)}</b>
 			</Typography>
 			<TabPanel value={value} index={0}>
-				<Typography variant="caption" className={classes.p16}>
+				<Typography variant="caption">
 					<i>Quantity Find % does not effect the Rarity Table</i>
 				</Typography>
-				<ChancesTable
-					data={calculatedData.chancesOutput}
-					className={classes.mt8}
-				/>
-				<Grid
-					container
-					justify="space-between"
-					direction="row"
-					className={`${classes.p8}`}
-				>
+				<ChancesTable data={calculatedData.chancesOutput} />
+				<Grid container justify="space-between" direction="row">
 					<Typography>You will earn:</Typography>
 					<IconWithText icon="icons/icon_gold.png" tooltip="Gold">
-						<b>{calculatedData.currencyAmount.gold}</b>
+						<b>{noNaN(calculatedData.currencyAmount.gold)}</b>
 					</IconWithText>
 					<IconWithText icon="icons/icon_silver.png" tooltip="Silver">
-						<b>{calculatedData.currencyAmount.silver}</b>
+						<b>{noNaN(calculatedData.currencyAmount.silver)}</b>
 					</IconWithText>
 					<IconWithText icon="icons/icon_copper.png" tooltip="Copper">
-						<b>{calculatedData.currencyAmount.copper}</b>
+						<b>{noNaN(calculatedData.currencyAmount.copper)}</b>
 					</IconWithText>
 				</Grid>
 			</TabPanel>
-			<TabPanel value={value} index={1}>
-				<QuantityTable
-					data={calculatedData.quantitiesOutput}
-					className={classes.mt8}
-				/>
-			</TabPanel>
-		</PaperItem>
+			{/* <TabPanel value={value} index={1}>
+				<QuantityTable data={calculatedData.quantitiesOutput} />
+			</TabPanel> */}
+		</div>
 	);
 };
 

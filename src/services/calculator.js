@@ -1,6 +1,11 @@
 const rarities = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
 const quantities = ["Zero", "One", "Two", "Three"];
 
+const noNaN = (x) => {
+	if (isNaN(x)) return 0;
+	return x;
+};
+
 // Functions for each type of calc
 
 const calculate = ({
@@ -274,9 +279,9 @@ const calculate = ({
 		chancesOutput.push({
 			id,
 			rarity,
-			chance: Math.round(rarityData.chance * 10000) / 100 + "%",
-			tries: Math.round(rarityData.tries),
-			dropCount: Math.floor(rarityData.count),
+			chance: noNaN(Math.round(rarityData.chance * 10000) / 100) + "%",
+			tries: noNaN(Math.round(rarityData.tries)),
+			dropCount: noNaN(Math.floor(rarityData.count)),
 		});
 	}
 

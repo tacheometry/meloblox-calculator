@@ -4,11 +4,11 @@ export default createMuiTheme({
 	palette: {
 		primary: {
 			main: "#ec407a",
-			light: "#757de8",
-			dark: "#002984",
+			light: "#ec407a",
+			dark: "#b4004e",
 		},
 		secondary: {
-			main: "#5c6bc0",
+			main: "#40ecb3",
 			light: "#8e99f3",
 			dark: "#26418f",
 		},
@@ -18,6 +18,11 @@ export default createMuiTheme({
 			contrastText: "#fff",
 		},
 		type: "dark",
+	},
+	props: {
+		MuiPaper: {
+			elevation: 3,
+		},
 	},
 	overrides: {},
 });

@@ -1,21 +1,16 @@
-import { useState } from "react";
+import React from "react";
 
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Paper } from "@material-ui/core";
 
 import CalculatorInput from "../components/CalculatorInput";
 import CalculatorOutput from "../components/CalculatorOutput";
 
 import calculate from "../services/calculator";
 
-const useStyle = makeStyles((theme) => ({
-	spacing: {
-		margin: 16,
-	},
-}));
+import useStyles from "../styles";
 
 export default function CalculatorPage() {
-	const [state, setState] = useState({
+	const [state, setState] = React.useState({
 		goldFind: 0,
 		magicFind: 0,
 		quantityFind: 0,
@@ -25,14 +20,26 @@ export default function CalculatorPage() {
 	});
 
 	const calculatedData = calculate(state);
-	const classes = useStyle();
+	const classes = useStyles();
 
 	return (
 		<Grid container justify="center">
-			<Grid item lg={2} className={classes.spacing}>
+			<Grid
+				item
+				lg={2}
+				component={Paper}
+				className={classes.gridPaperItem}
+			>
 				<CalculatorInput onSubmit={setState} />
 			</Grid>
-			<Grid item lg={5} md={7} sm className={classes.spacing}>
+			<Grid
+				item
+				lg={5}
+				md={7}
+				sm
+				component={Paper}
+				className={classes.gridPaperItem}
+			>
 				<CalculatorOutput calculatedData={calculatedData} />
 			</Grid>
 		</Grid>

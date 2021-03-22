@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import getTheme from "./ThemeSwitcher";
 
@@ -8,15 +8,12 @@ export const CustomThemeContext = React.createContext({
 	setTheme: null,
 });
 
-const CustomThemeProvider = (props) => {
-	// eslint-disable-next-line react/prop-types
-	const { children } = props;
-
+const CustomThemeProvider = ({ children }) => {
 	// Read current theme from localStorage or maybe from an api
 	const currentTheme = localStorage.getItem("appTheme") || "defaultTheme";
 
 	// State to hold the selected theme name
-	const [themeName, _setThemeName] = useState(currentTheme);
+	const [themeName, _setThemeName] = React.useState(currentTheme);
 
 	// Retrieve the theme object by theme name
 	const theme = getTheme(themeName);
