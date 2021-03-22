@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Grid, Tabs, Tab, Box, Paper } from "@material-ui/core";
+import { Typography, Grid, Tabs, Tab, Box } from "@material-ui/core";
 import IconWithText from "./IconWithText";
 import ChancesTable from "./ChancesTable";
 import QuantityTable from "./QuantityTable";
@@ -56,7 +56,7 @@ const CalculatorOutput = ({ calculatedData }) => {
 				centered
 			>
 				<Tab label="Rarity Chances" {...a11yProps(0)} />
-				{/* <Tab label="Quantity Details" {...a11yProps(1)} /> */}
+				<Tab label="Quantity Details" {...a11yProps(1)} />
 			</Tabs>
 			<Typography>
 				Normal monsters slain:{" "}
@@ -70,7 +70,12 @@ const CalculatorOutput = ({ calculatedData }) => {
 					<i>Quantity Find % does not effect the Rarity Table</i>
 				</Typography>
 				<ChancesTable data={calculatedData.chancesOutput} />
-				<Grid container justify="space-between" direction="row">
+				<Grid
+					container
+					justify="space-between"
+					direction="row"
+					className={classes.p16}
+				>
 					<Typography>You will earn:</Typography>
 					<IconWithText icon="icons/icon_gold.png" tooltip="Gold">
 						<b>{noNaN(calculatedData.currencyAmount.gold)}</b>
@@ -83,9 +88,9 @@ const CalculatorOutput = ({ calculatedData }) => {
 					</IconWithText>
 				</Grid>
 			</TabPanel>
-			{/* <TabPanel value={value} index={1}>
+			<TabPanel value={value} index={1}>
 				<QuantityTable data={calculatedData.quantitiesOutput} />
-			</TabPanel> */}
+			</TabPanel>
 		</div>
 	);
 };

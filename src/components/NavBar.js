@@ -40,23 +40,33 @@ export default function NavBar({ onDrawerToggle }) {
 	};
 
 	return (
-		<AppBar position="fixed" className={classes.navbar}>
+		<AppBar position="fixed">
 			<Toolbar>
 				<Hidden mdUp>
-					<IconButton onClick={onDrawerToggle} component={MenuIcon} />
+					<IconButton
+						onClick={onDrawerToggle}
+						component={MenuIcon}
+						color="secondary"
+					/>
 				</Hidden>
 				<Icon
 					component="img"
 					src={getPublic("favicon.ico")}
 					alt="MeloBlox Calculator"
 				/>
-				<Typography variant="h5">MeloBlox Calculator</Typography>
+				<Hidden smDown>
+					<Typography variant="h5">MeloBlox Calculator</Typography>
+				</Hidden>
+				<Hidden mdUp>
+					<Typography variant="h6">MeloBlox Calculator</Typography>
+				</Hidden>
 				<Hidden smDown>
 					<div className={classes.middleNavbarButtons}>
 						<Button
 							startIcon={<PlayCircleFilled />} // "calculate" icon is missing :/
 							component={RouterLink}
 							to="/calculator"
+							className={classes.navbar}
 						>
 							Calculator
 						</Button>
@@ -64,6 +74,7 @@ export default function NavBar({ onDrawerToggle }) {
 							startIcon={<InfoIcon />}
 							component={RouterLink}
 							to="/about"
+							className={classes.navbar}
 						>
 							About
 						</Button>
@@ -77,7 +88,7 @@ export default function NavBar({ onDrawerToggle }) {
 								onChange={handleThemeChange}
 							/>
 						}
-						label="Dark mode"
+						label={isDark ? "Dark Mode" : "Light Mode"}
 						color="secondary"
 					/>
 				</div>

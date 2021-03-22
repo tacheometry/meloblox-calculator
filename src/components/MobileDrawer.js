@@ -8,7 +8,7 @@ import {
 	ListItemText,
 } from "@material-ui/core";
 import {
-	Menu as MenuIcon,
+	// Menu as MenuIcon,
 	PlayCircleFilled,
 	Info as InfoIcon,
 } from "@material-ui/icons";

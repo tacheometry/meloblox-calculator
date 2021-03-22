@@ -7,7 +7,6 @@ import {
 	FormGroup,
 	Grid,
 	Typography,
-	Paper,
 } from "@material-ui/core";
 import NumberInput from "./NumberInput";
 
@@ -44,6 +43,7 @@ const CalculatorInput = ({ onSubmit }) => {
 					justify="center"
 					direction="column"
 					spacing={1}
+					className={classes.p16}
 				>
 					<Typography variant="h6">
 						Insert your stats below

@@ -7,8 +7,13 @@ const useStyles = createMuiTheme({
 			light: "#ec407a",
 			dark: "#b4004e",
 		},
-		secondary: {
+		/*secondary: {
 			main: "#40ecb3",
+			light: "#ff94c2",
+			dark: "#ba2d65",
+		},*/
+		secondary: {
+			main: "#f48fb1",
 			light: "#ff94c2",
 			dark: "#ba2d65",
 		},
