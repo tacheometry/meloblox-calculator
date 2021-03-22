@@ -46,7 +46,7 @@ export default function NavBar({ onDrawerToggle }) {
 					<IconButton
 						onClick={onDrawerToggle}
 						component={MenuIcon}
-						color="secondary"
+						color="info"
 					/>
 				</Hidden>
 				<Icon
@@ -89,7 +89,7 @@ export default function NavBar({ onDrawerToggle }) {
 							/>
 						}
 						label={isDark ? "Dark Mode" : "Light Mode"}
-						color="secondary"
+						color="info"
 					/>
 				</div>
 			</Toolbar>

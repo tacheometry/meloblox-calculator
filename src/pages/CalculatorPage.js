@@ -28,7 +28,7 @@ export default function CalculatorPage() {
 				item
 				lg={2}
 				component={Paper}
-				className={classes.gridPaperItem}
+				className={`${classes.m8} ${classes.p16}`}
 			>
 				<CalculatorInput onSubmit={setState} />
 			</Grid>
@@ -38,7 +38,7 @@ export default function CalculatorPage() {
 				md={7}
 				sm
 				component={Paper}
-				className={classes.gridPaperItem}
+				className={`${classes.m8} ${classes.p16}`}
 			>
 				<CalculatorOutput calculatedData={calculatedData} />
 			</Grid>

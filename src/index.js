@@ -57,7 +57,9 @@ function App() {
 							<CssBaseline />
 						</Switch>
 					</div>
-					<Typography className={classes.licenseText}>
+					<Typography
+						className={`${classes.licenseText} ${classes.ptb16}`}
+					>
 						MeloBlox Calculator © MIT License
 					</Typography>
 				</CustomThemeProvider>

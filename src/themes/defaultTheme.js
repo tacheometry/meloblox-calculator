@@ -17,6 +17,11 @@ const useStyles = createMuiTheme({
 			light: "#ff94c2",
 			dark: "#ba2d65",
 		},
+		info: {
+			main: "#ececec",
+			light: "#ececec",
+			dark: "#ececec",
+		},
 		background: {
 			default: "#ececec",
 			main: "#fff",

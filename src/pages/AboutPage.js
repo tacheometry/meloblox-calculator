@@ -6,7 +6,7 @@ function LinkButton(props) {
 	const classes = useStyles();
 
 	return (
-		<Grid item component={Paper} className={classes.gridPaperItem}>
+		<Grid item component={Paper} className={`${classes.m8} ${classes.p16}`}>
 			<Button href={props.link} target="_blank" rel="noreferrer noopener">
 				<Grid container justify="center" direction="column">
 					<Grid item>{props.children}</Grid>
@@ -26,7 +26,11 @@ export default function AboutPage() {
 
 	return (
 		<Grid container justify="center">
-			<Grid item component={Paper} className={classes.gridPaperItem}>
+			<Grid
+				item
+				component={Paper}
+				className={`${classes.m8} ${classes.p16}`}
+			>
 				<Typography variant="h5">Meloblox Calculator</Typography>
 				<Typography variant="subtitle2">
 					by{" "}

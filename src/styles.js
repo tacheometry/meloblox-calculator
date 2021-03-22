@@ -16,10 +16,19 @@ const useStyles = makeStyles((theme) => ({
 	mt16: {
 		marginTop: 16,
 	},
-	gridPaperItem: {
+	mtb16: {
+		marginTop: 16,
+		marginBottom: 16,
+	},
+	ptb16: {
+		paddingTop: 16,
+		paddingBottom: 16,
+	},
+
+	/*gridPaperItem: {
 		margin: 10,
 		padding: 16,
-	},
+	},*/
 	imageCenter: {
 		display: "block",
 		marginLeft: "auto",
