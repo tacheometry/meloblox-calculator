@@ -4,10 +4,10 @@ import "./App.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import {
-	BrowserRouter as Router,
+	HashRouter as Router,
 	Switch,
-	Route,
 	Redirect,
+	Route,
 } from "react-router-dom";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -45,12 +45,13 @@ function App() {
 					/>
 					<div style={{ paddingTop: "64px" }}>
 						<Switch>
-							<Route path="/about" component={AboutPage} />
+							<Route exact path="/about" component={AboutPage} />
 							<Route
+								exact
 								path="/calculator"
 								component={CalculatorPage}
 							/>
-							<Route path="/">
+							<Route exact path="/">
 								<Redirect to="/calculator" />
 							</Route>
 							<CssBaseline />
