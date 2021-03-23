@@ -25,7 +25,7 @@ export default function AboutPage() {
 	const classes = useStyles();
 
 	return (
-		<Grid container justify="center">
+		<Grid container justify="center" className={classes.mt8}>
 			<Grid
 				item
 				component={Paper}

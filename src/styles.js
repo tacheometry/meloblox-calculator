@@ -8,10 +8,13 @@ const useStyles = makeStyles((theme) => ({
 		padding: 16,
 	},
 	m8: {
-		margin: 8,
+		margin: "8px !important",
 	},
 	m16: {
 		margin: 16,
+	},
+	mt8: {
+		marginTop: 8,
 	},
 	mt16: {
 		marginTop: 16,
