@@ -43,6 +43,21 @@
 	font-weight: bold;
 }
 
+input[type="number"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+input[type="number"]::-webkit-outside-spin-button {
+	display: none;
+}
+
+input[type="number"]::-ms-clear {
+	display: none;
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
 .rightAlign {
 	position: absolute;
 	right: 0;

@@ -81,16 +81,30 @@ export default function NavBar({ onDrawerToggle }) {
 					</div>
 				</Hidden>
 				<div className="rightAlign">
-					<FormControlLabel
-						control={
-							<Switch
-								checked={isDark}
-								onChange={handleThemeChange}
-							/>
-						}
-						label={isDark ? "Dark Mode" : "Light Mode"}
-						color="info"
-					/>
+					<Hidden smDown>
+						<FormControlLabel
+							control={
+								<Switch
+									checked={isDark}
+									onChange={handleThemeChange}
+								/>
+							}
+							label={isDark ? "Dark Mode" : "Light Mode"}
+							color="info"
+						/>
+					</Hidden>
+					<Hidden mdUp>
+						<FormControlLabel
+							control={
+								<Switch
+									checked={isDark}
+									onChange={handleThemeChange}
+									size="small"
+								/>
+							}
+							color="info"
+						/>
+					</Hidden>
 				</div>
 			</Toolbar>
 		</AppBar>

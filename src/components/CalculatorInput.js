@@ -7,6 +7,7 @@ import {
 	FormGroup,
 	Grid,
 	Typography,
+	InputAdornment,
 } from "@material-ui/core";
 import NumberInput from "./NumberInput";
 
@@ -51,26 +52,62 @@ const CalculatorInput = ({ onSubmit }) => {
 					<NumberInputItem
 						required
 						name="goldFind"
-						label="Gold Find (%)"
+						label="Gold Find"
 						color="secondary"
+						min={0}
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									%
+								</InputAdornment>
+							),
+							inputProps: { min: 0 },
+						}}
 					/>
 					<NumberInputItem
 						required
 						name="quantityFind"
-						label="Quantity Find (%)"
+						label="Quantity Find"
 						color="secondary"
+						min={40}
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									%
+								</InputAdornment>
+							),
+							inputProps: { min: 40 },
+						}}
 					/>
 					<NumberInputItem
 						required
 						name="magicFind"
-						label="Magic Find (%)"
+						label="Magic Find"
 						color="secondary"
+						min={0}
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									%
+								</InputAdornment>
+							),
+							inputProps: { min: 0 },
+						}}
 					/>
 					<NumberInputItem
 						required
 						name="grindTime"
-						label="Grinding duration (min)"
+						label="Grinding duration"
 						color="secondary"
+						min={0}
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									min
+								</InputAdornment>
+							),
+							inputProps: { min: 0 },
+						}}
 					/>
 					<FormControl component="fieldset">
 						<FormGroup>
@@ -94,6 +131,14 @@ const CalculatorInput = ({ onSubmit }) => {
 							name="blobKingKillSeconds"
 							label="Blob King kill time (s)"
 							defaultValue={30}
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										s
+									</InputAdornment>
+								),
+								inputProps: { min: 0 },
+							}}
 							color="secondary"
 							required
 						/>
