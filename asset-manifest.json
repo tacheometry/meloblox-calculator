@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/meloblox-calculator-experimental/static/css/main.ca5e603d.chunk.css",
-    "main.js": "/meloblox-calculator-experimental/static/js/main.84c22bb0.chunk.js",
-    "main.js.map": "/meloblox-calculator-experimental/static/js/main.84c22bb0.chunk.js.map",
-    "runtime-main.js": "/meloblox-calculator-experimental/static/js/runtime-main.53f9e008.js",
-    "runtime-main.js.map": "/meloblox-calculator-experimental/static/js/runtime-main.53f9e008.js.map",
-    "static/js/2.13889b36.chunk.js": "/meloblox-calculator-experimental/static/js/2.13889b36.chunk.js",
-    "static/js/2.13889b36.chunk.js.map": "/meloblox-calculator-experimental/static/js/2.13889b36.chunk.js.map",
-    "index.html": "/meloblox-calculator-experimental/index.html",
-    "static/css/main.ca5e603d.chunk.css.map": "/meloblox-calculator-experimental/static/css/main.ca5e603d.chunk.css.map",
-    "static/js/2.13889b36.chunk.js.LICENSE.txt": "/meloblox-calculator-experimental/static/js/2.13889b36.chunk.js.LICENSE.txt"
+    "main.css": "/meloblox-calculator/static/css/main.ca5e603d.chunk.css",
+    "main.js": "/meloblox-calculator/static/js/main.deeefea7.chunk.js",
+    "main.js.map": "/meloblox-calculator/static/js/main.deeefea7.chunk.js.map",
+    "runtime-main.js": "/meloblox-calculator/static/js/runtime-main.05da0bf4.js",
+    "runtime-main.js.map": "/meloblox-calculator/static/js/runtime-main.05da0bf4.js.map",
+    "static/js/2.33bdd356.chunk.js": "/meloblox-calculator/static/js/2.33bdd356.chunk.js",
+    "static/js/2.33bdd356.chunk.js.map": "/meloblox-calculator/static/js/2.33bdd356.chunk.js.map",
+    "index.html": "/meloblox-calculator/index.html",
+    "static/css/main.ca5e603d.chunk.css.map": "/meloblox-calculator/static/css/main.ca5e603d.chunk.css.map",
+    "static/js/2.33bdd356.chunk.js.LICENSE.txt": "/meloblox-calculator/static/js/2.33bdd356.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.53f9e008.js",
-    "static/js/2.13889b36.chunk.js",
+    "static/js/runtime-main.05da0bf4.js",
+    "static/js/2.33bdd356.chunk.js",
     "static/css/main.ca5e603d.chunk.css",
-    "static/js/main.84c22bb0.chunk.js"
+    "static/js/main.deeefea7.chunk.js"
   ]
 }
