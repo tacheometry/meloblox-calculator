@@ -17,6 +17,7 @@ export default function CalculatorPage() {
 		grindTime: 0,
 		blobKingKillSeconds: 0,
 		willKillBosses: false,
+		applyQFtoChances: false,
 	});
 
 	const calculatedData = calculate(state);
@@ -40,7 +41,10 @@ export default function CalculatorPage() {
 				component={Paper}
 				className={`${classes.m8} ${classes.p16}`}
 			>
-				<CalculatorOutput calculatedData={calculatedData} />
+				<CalculatorOutput
+					calculatedData={calculatedData}
+					experimentalMode={state.applyQFtoChances}
+				/>
 			</Grid>
 		</Grid>
 	);

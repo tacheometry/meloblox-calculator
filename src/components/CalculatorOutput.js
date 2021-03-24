@@ -38,7 +38,7 @@ function a11yProps(index) {
 	};
 }
 
-const CalculatorOutput = ({ calculatedData }) => {
+const CalculatorOutput = ({ calculatedData, experimentalMode }) => {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
 
@@ -66,9 +66,21 @@ const CalculatorOutput = ({ calculatedData }) => {
 				<b>{Math.ceil(calculatedData.monstersSlain.bosses)}</b>
 			</Typography>
 			<TabPanel value={value} index={0}>
-				<Typography variant="caption">
-					<i>Quantity Find % does not effect the Rarity Table</i>
-				</Typography>
+				{experimentalMode && (
+					<Typography variant="subtitle2" color="secondary">
+						Experimental mode activated!
+					</Typography>
+				)}
+				{experimentalMode && (
+					<Typography variant="caption">
+						<i>Quantity Find % DOES effect the Rarity Table</i>
+					</Typography>
+				)}
+				{!experimentalMode && (
+					<Typography variant="caption">
+						<i>Quantity Find % does not effect the Rarity Table</i>
+					</Typography>
+				)}
 				<ChancesTable data={calculatedData.chancesOutput} />
 				<Grid
 					container

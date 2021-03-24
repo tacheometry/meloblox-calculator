@@ -14,7 +14,8 @@ const calculate = ({
 	grindTime,
 	blobKingKillSeconds,
 	quantityFind,
-	willKillBosses = false,
+	willKillBosses,
+	applyQFtoChances,
 }) => {
 	// Parsing the strings to int so I can count with them
 	goldFind = parseInt(goldFind);
@@ -137,44 +138,6 @@ const calculate = ({
 
 	var totalMF = magicFind + avgBoost; // Adding the avgBoost breaks it for some reason ;_;
 
-	//#region Chances
-	chanceData.Common.chance = 1;
-	chanceData.Uncommon.chance = totalMF / 5 / 100;
-	chanceData.Rare.chance = (totalMF / 10 / 100) * chanceData.Uncommon.chance;
-	chanceData.Epic.chance = (totalMF / 18 / 100) * chanceData.Rare.chance;
-	chanceData.Legendary.chance = (totalMF / 38 / 100) * chanceData.Epic.chance;
-
-	chanceData.sum =
-		chanceData.Common.chance +
-		chanceData.Uncommon.chance +
-		chanceData.Rare.chance +
-		chanceData.Epic.chance +
-		chanceData.Legendary.chance;
-
-	chanceData.Common.chance /= chanceData.sum;
-	chanceData.Uncommon.chance /= chanceData.sum;
-	chanceData.Rare.chance /= chanceData.sum;
-	chanceData.Epic.chance /= chanceData.sum;
-	chanceData.Legendary.chance /= chanceData.sum;
-
-	chanceData.Common.tries = 1 / chanceData.Common.chance;
-	chanceData.Common.count = chanceData.Common.chance * monstersSlain.total;
-
-	chanceData.Uncommon.tries = 1 / chanceData.Uncommon.chance;
-	chanceData.Uncommon.count =
-		chanceData.Uncommon.chance * monstersSlain.total;
-
-	chanceData.Rare.tries = 1 / chanceData.Rare.chance;
-	chanceData.Rare.count = chanceData.Rare.chance * monstersSlain.total;
-
-	chanceData.Epic.tries = 1 / chanceData.Epic.chance;
-	chanceData.Epic.count = chanceData.Epic.chance * monstersSlain.total;
-
-	chanceData.Legendary.tries = 1 / chanceData.Legendary.chance;
-	chanceData.Legendary.count =
-		chanceData.Legendary.chance * monstersSlain.total;
-	//#endregion
-
 	//#region Quantity
 	let normalFlatCount = quantityData.normalFlat * monstersSlain.normal;
 	let bossesFlatCount = 0;
@@ -215,6 +178,69 @@ const calculate = ({
 
 	quantityData.Three.tries = 1 / quantityData.Three.chance;
 	quantityData.Three.count = quantityData.Three.chance * monstersSlain.total;
+	//#endregion
+
+	//#region Chances
+	chanceData.Common.chance = 1;
+	chanceData.Uncommon.chance = totalMF / 5 / 100;
+	chanceData.Rare.chance = (totalMF / 10 / 100) * chanceData.Uncommon.chance;
+	chanceData.Epic.chance = (totalMF / 18 / 100) * chanceData.Rare.chance;
+	chanceData.Legendary.chance = (totalMF / 38 / 100) * chanceData.Epic.chance;
+
+	chanceData.sum =
+		chanceData.Common.chance +
+		chanceData.Uncommon.chance +
+		chanceData.Rare.chance +
+		chanceData.Epic.chance +
+		chanceData.Legendary.chance;
+
+	chanceData.Common.chance /= chanceData.sum;
+	chanceData.Uncommon.chance /= chanceData.sum;
+	chanceData.Rare.chance /= chanceData.sum;
+	chanceData.Epic.chance /= chanceData.sum;
+	chanceData.Legendary.chance /= chanceData.sum;
+
+	chanceData.Common.tries = 1 / chanceData.Common.chance;
+	chanceData.Common.count = chanceData.Common.chance * monstersSlain.total;
+
+	chanceData.Uncommon.tries = 1 / chanceData.Uncommon.chance;
+	chanceData.Uncommon.count =
+		chanceData.Uncommon.chance * monstersSlain.total;
+
+	chanceData.Rare.tries = 1 / chanceData.Rare.chance;
+	chanceData.Rare.count = chanceData.Rare.chance * monstersSlain.total;
+
+	chanceData.Epic.tries = 1 / chanceData.Epic.chance;
+	chanceData.Epic.count = chanceData.Epic.chance * monstersSlain.total;
+
+	chanceData.Legendary.tries = 1 / chanceData.Legendary.chance;
+	chanceData.Legendary.count =
+		chanceData.Legendary.chance * monstersSlain.total;
+
+	// IF true -> Applying Quantity counts to the Chances amount
+	if (applyQFtoChances) {
+		chanceData.Common.count =
+			-1 * (chanceData.Common.chance * quantityData.Zero.count) +
+			chanceData.Common.chance * quantityData.One.count +
+			chanceData.Common.chance * quantityData.Two.count * 2 +
+			chanceData.Common.chance * quantityData.Three.count * 3;
+		chanceData.Uncommon.count =
+			-1 * (chanceData.Uncommon.chance * quantityData.Zero.count) +
+			chanceData.Uncommon.chance * quantityData.One.count +
+			chanceData.Uncommon.chance * quantityData.Two.count * 2 +
+			chanceData.Uncommon.chance * quantityData.Three.count * 3;
+		chanceData.Rare.count =
+			-1 * (chanceData.Rare.chance * quantityData.Zero.count) +
+			chanceData.Rare.chance * quantityData.One.count +
+			chanceData.Rare.chance * quantityData.Two.count * 2 +
+			chanceData.Rare.chance * quantityData.Three.count * 3;
+		chanceData.Legendary.count =
+			-1 * (chanceData.Legendary.chance * quantityData.Zero.count) +
+			chanceData.Legendary.chance * quantityData.One.count +
+			chanceData.Legendary.chance * quantityData.Two.count * 2 +
+			chanceData.Legendary.chance * quantityData.Three.count * 3;
+	}
+
 	//#endregion
 
 	//#region Currency
@@ -260,6 +286,62 @@ const calculate = ({
 			epicAvg * chanceData.Epic.chance +
 			legendaryAvg * chanceData.Legendary.chance) *
 		monstersSlain.total;
+
+	// IF true -> Applying Quantity counts to the Currency amount
+	if (applyQFtoChances) {
+		const thisCommon =
+			-1 *
+				(commonAvg *
+					chanceData.Common.chance *
+					quantityData.Zero.count) +
+			commonAvg * chanceData.Common.chance * quantityData.One.count +
+			commonAvg * chanceData.Common.chance * quantityData.Two.count * 2 +
+			commonAvg * chanceData.Common.chance * quantityData.Three.count * 3;
+		const thisUncommon =
+			-1 *
+				(uncommonAvg *
+					chanceData.Uncommon.chance *
+					quantityData.Zero.count) +
+			uncommonAvg * chanceData.Uncommon.chance * quantityData.One.count +
+			uncommonAvg *
+				chanceData.Uncommon.chance *
+				quantityData.Two.count *
+				2 +
+			uncommonAvg *
+				chanceData.Uncommon.chance *
+				quantityData.Three.count *
+				3;
+		const thisRare =
+			-1 * (rareAvg * chanceData.Rare.chance * quantityData.Zero.count) +
+			rareAvg * chanceData.Rare.chance * quantityData.One.count +
+			rareAvg * chanceData.Rare.chance * quantityData.Two.count * 2 +
+			rareAvg * chanceData.Rare.chance * quantityData.Three.count * 3;
+		const thisEpic =
+			-1 * (epicAvg * chanceData.Epic.chance * quantityData.Zero.count) +
+			epicAvg * chanceData.Epic.chance * quantityData.One.count +
+			epicAvg * chanceData.Epic.chance * quantityData.Two.count * 2 +
+			epicAvg * chanceData.Epic.chance * quantityData.Three.count * 3;
+		const thisLegendary =
+			-1 *
+				(legendaryAvg *
+					chanceData.Legendary.chance *
+					quantityData.Zero.count) +
+			legendaryAvg *
+				chanceData.Legendary.chance *
+				quantityData.One.count +
+			legendaryAvg *
+				chanceData.Legendary.chance *
+				quantityData.Two.count *
+				2 +
+			legendaryAvg *
+				chanceData.Legendary.chance *
+				quantityData.Three.count *
+				3;
+
+		baseAmount =
+			thisCommon + thisUncommon + thisRare + thisEpic + thisLegendary;
+	}
+
 	totalAmount = Math.floor((goldFind / 100) * baseAmount + baseAmount);
 
 	totalAmount = totalAmount / 10000;

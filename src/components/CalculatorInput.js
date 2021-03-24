@@ -18,7 +18,8 @@ const NumberInputItem = (props) => {
 };
 
 const CalculatorInput = ({ onSubmit }) => {
-	const [willKillBosses, setState] = React.useState(false);
+	const [willKillBosses, setStateBosses] = React.useState(false);
+	const [applyQFtoChances, setStateQFtoC] = React.useState(false);
 	const classes = useStyles();
 
 	return (
@@ -35,6 +36,7 @@ const CalculatorInput = ({ onSubmit }) => {
 						grindTime: target.grindTime.value,
 						blobKingKillSeconds: target.blobKingKillSeconds?.value,
 						willKillBosses,
+						applyQFtoChances,
 					});
 				}}
 			>
@@ -116,7 +118,7 @@ const CalculatorInput = ({ onSubmit }) => {
 									<Checkbox
 										name="willKillBosses"
 										onChange={(event) =>
-											setState(event.target.checked)
+											setStateBosses(event.target.checked)
 										}
 										color="secondary"
 									/>
@@ -143,6 +145,24 @@ const CalculatorInput = ({ onSubmit }) => {
 							required
 						/>
 					)}
+					<Typography variant="h6">Experimental</Typography>
+					<FormControl component="fieldset">
+						<FormGroup>
+							<FormControlLabel
+								control={
+									<Checkbox
+										name="applyQFtoChances"
+										onChange={(event) =>
+											setStateQFtoC(event.target.checked)
+										}
+										color="secondary"
+									/>
+								}
+								label="Apply Quantity to Chances"
+								labelPlacement="end"
+							/>
+						</FormGroup>
+					</FormControl>
 					<Grid item>
 						<Button
 							type="submit"
