@@ -145,7 +145,6 @@ const CalculatorInput = ({ onSubmit }) => {
 							required
 						/>
 					)}
-					<Typography variant="h6">Experimental</Typography>
 					<FormControl component="fieldset">
 						<FormGroup>
 							<FormControlLabel
